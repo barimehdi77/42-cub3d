@@ -6,13 +6,13 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:02:42 by mbari             #+#    #+#             */
-/*   Updated: 2020/04/29 17:02:43 by mbari            ###   ########.fr       */
+/*   Updated: 2020/05/13 02:14:05 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int worldMap[mapWidth][mapHeight]=
+/* int worldMap[mapWidth][mapHeight]=
 {
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
   {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -38,7 +38,9 @@ int worldMap[mapWidth][mapHeight]=
   {1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
   {1,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
-};
+}; */
+
+
 
 
 void ft_steps(t_mlx *mlx, int x)
@@ -93,6 +95,7 @@ int ft_draw(t_mlx *mlx, int x)
 {
 	long int color;
 	
+    color = RGB_Red;
 	//Calculate height of line to draw on screen
 	mlx->wall.lineHeight = (int)(h / mlx->ray.perpWallDist);
 	//calculate lowest and highest pixel to fill in current stripe
@@ -105,10 +108,10 @@ int ft_draw(t_mlx *mlx, int x)
 	//choose wall color
 	switch(worldMap[mlx->ray.mapx][mlx->ray.mapy])
 	{
-	case 1:  color = RGB_Red;  break; //red
-	case 2:  color = RGB_Green;  break; //green
-	case 3:  color = RGB_Blue;   break; //blue
-	case 4:  color = RGB_White;  break; //white
+	case '1':  color = RGB_Red;  break; //red
+	case '2':  color = RGB_Green;  break; //green
+	case '3':  color = RGB_Blue;   break; //blue
+	case '4':  color = RGB_White;  break; //white
 	default: color = RGB_Yellow; break; //yellow
 	}
 
@@ -144,7 +147,7 @@ int ft_update(t_mlx *mlx)
                 mlx->ray.side = 1;
             }
             //Check if ray has hit a wall
-            if (worldMap[mlx->ray.mapx][mlx->ray.mapy] > 0)
+            if (worldMap[mlx->ray.mapx][mlx->ray.mapy] != '0')
                 mlx->ray.hit = 1;
         }
         //Calculate distance projected on camera direction (Euclidean distance will give fisheye effect!)

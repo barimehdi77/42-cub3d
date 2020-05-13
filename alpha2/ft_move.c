@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:34:38 by mbari             #+#    #+#             */
-/*   Updated: 2020/04/29 17:03:23 by mbari            ###   ########.fr       */
+/*   Updated: 2020/05/13 02:14:55 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,17 @@ int	ft_move(int key, t_mlx *mlx)
 	else if (key == 119)
 	{
         mlx_clear_window(mlx->win.mlx_ptr, mlx->win.win_ptr);
-		if(worldMap[(int)(mlx->posX + mlx->dirX * mlx->movespeed)][(int)(mlx->posY)] == 0)
+		if(worldMap[(int)(mlx->posX + mlx->dirX * mlx->movespeed)][(int)(mlx->posY)] == '0')
 			mlx->posX += mlx->dirX * mlx->movespeed;
-      	if(worldMap[(int)(mlx->posX)][(int)(mlx->posY + mlx->dirY * mlx->movespeed)] == 0)
+      	if(worldMap[(int)(mlx->posX)][(int)(mlx->posY + mlx->dirY * mlx->movespeed)] == '0')
 		  	mlx->posY += mlx->dirY * mlx->movespeed;
 	}
 	else if (key == 115)
 	{
         mlx_clear_window(mlx->win.mlx_ptr, mlx->win.win_ptr);
-		if(worldMap[(int)(mlx->posX - mlx->dirX * mlx->movespeed)][(int)(mlx->posY)] == 0)
+		if(worldMap[(int)(mlx->posX - mlx->dirX * mlx->movespeed)][(int)(mlx->posY)] == '0')
 			mlx->posX -= mlx->dirX * mlx->movespeed;
-      	if(worldMap[(int)(mlx->posX)][(int)(mlx->posY - mlx->dirY * mlx->movespeed)] == 0)
+      	if(worldMap[(int)(mlx->posX)][(int)(mlx->posY - mlx->dirY * mlx->movespeed)] == '0')
 		  	mlx->posY -= mlx->dirY * mlx->movespeed;
 	}
 	else if (key == 97 || key == 100)
