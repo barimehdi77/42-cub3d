@@ -20,13 +20,22 @@ The goal of cub3d is to make something using raycasting (like Wolfenstein 3D).
 - The Things that just finished
   1. [x] The walls are draw
   2. [x] Your Player can Move and Rotate Now.
+  3. [x] Minimap.
 - Working on:
   1. [ ] Add Texture.
-  2. [ ] Minimap.
-  3. [ ] Edit The Files.
-  4. [ ] Edit The Map Like in PDF.
-  5. [ ] Draw the Floor and the sky.
+  2. [ ] Edit The Files.
+  3. [ ] Edit The Map Like in PDF.
+  4. [ ] Draw the Floor and the sky.
   
+# cub3d Alpha version 3: (what's new)
+- minimap:
+  - Now The minimap draw the wall with the color like in the map
+  - Add the position of the player
+  - the position of the player change in the minimap like in the map4
+- Edit the wall color
+- Now drawing of the wall get more faster because The drawing now using images 
+- give x and y sides different brightness in the wall
+
 # The project Deadline
 - started: `28/04/2020`.
 - The deadline: ` 28/05/2020`.
