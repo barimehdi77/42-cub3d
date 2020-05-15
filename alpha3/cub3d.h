@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by mbari             #+#    #+#             */
-/*   Updated: 2020/05/14 04:02:10 by mbari            ###   ########.fr       */
+/*   Updated: 2020/05/15 05:57:35 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 
 #define texWidth 64
 #define texHeight 64
-#define mapWidth 10
-#define mapHeight 10
+#define mapWidth 15
+#define mapHeight 16 //the second map 15
 #define h 480 
 #define w 640
 #define RGB_Red 	0xFF0000 
@@ -32,7 +32,7 @@
 #define RGB_White 	0xFFFFFF
 #define RGB_Yellow	0xFFFF00
 
-static char worldMap[mapWidth][mapHeight] = 
+/* static char worldMap[mapWidth][mapHeight] = 
 			{  
 				"1111111111",
 			   	"1000000001",
@@ -44,6 +44,25 @@ static char worldMap[mapWidth][mapHeight] =
 			   	"1000005001",
 			   	"1000000001",
 			   	"1111111111"
+			}; */
+
+static char worldMap[mapWidth][mapHeight] = 
+			{  
+				"1111111111111111",
+				"1000000000000001",
+			   	"1000440004444001",
+			   	"1004040000004001",
+			   	"1000040004444001",
+			   	"1000040000004001",
+			   	"1000444004444001",
+			   	"1000000000000001",
+				"1004444004444001",
+				"1000004000004001",
+				"1004444000004001",
+				"1000004000004001",
+				"1004444000004001",
+			   	"1000000000000001",
+			   	"1111111111111111"
 			};
 
 typedef struct	s_window
@@ -80,6 +99,8 @@ typedef struct	s_minmap
 {
 	void *img_ptr;
 	int	 *img_data;
+	void *img_xpm;
+	int  *xpm_data;
 	int  bpp;
 	int  size_line;
 	int	 endian;
@@ -98,6 +119,17 @@ typedef	struct	s_draw
 	int drawEnd;
 }				t_draw;
 
+typedef struct	s_textuer
+{
+	int texnum;
+	double wallx;
+	int texx;
+	int texy;
+	double step;
+	double texpos;
+}				t_texture;
+
+
 typedef	struct	s_mlx
 {
 	//x and y start position
@@ -115,6 +147,7 @@ typedef	struct	s_mlx
 	t_draw wall;
 	t_ray ray;
 	t_minmap map;
+	t_texture tex;
 	int x;
 }				t_mlx;
 
@@ -132,6 +165,8 @@ void ft_rotate(int key, t_mlx *mlx);
 void ft_draw_square(t_minmap *img, int scale, int player, int color);
 void ft_fill_data(t_minmap *img, int iswall, int color);
 int ft_minmap(t_mlx *mlx);
+void ft_draw_floorsky(t_mlx *mlx);
+void ft_texture(t_mlx *mlx, int x);
 
 
 #endif

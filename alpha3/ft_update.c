@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:02:42 by mbari             #+#    #+#             */
-/*   Updated: 2020/05/14 04:01:02 by mbari            ###   ########.fr       */
+/*   Updated: 2020/05/15 05:58:27 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void ft_steps(t_mlx *mlx, int x)
     }
 }
 
-void ft_drawawall(int x, int y1, int y2, int color, t_mlx *mlx)
+/* void ft_drawawall(int x, int y1, int y2, int color, t_mlx *mlx)
 {
 	if(y2 < y1) {y1 += y2; y2 = y1 - y2; y1 -= y2;} //swap y1 and y2
 	if(y2 < 0 || y1 >= h  || x < 0 || x >= w) return ; //no single point of the line is on screen
@@ -58,7 +58,7 @@ void ft_drawawall(int x, int y1, int y2, int color, t_mlx *mlx)
 		mlx->map.img_data[y1 * 640 + x] = color;
         y1++;
 	}
-}
+} */
 
 int ft_draw(t_mlx *mlx, int x)
 {
@@ -74,31 +74,15 @@ int ft_draw(t_mlx *mlx, int x)
 	mlx->wall.drawEnd = mlx->wall.lineHeight / 2 + h / 2;
 	if(mlx->wall.drawEnd >= h)
 		mlx->wall.drawEnd = h - 1;
-	//choose wall color
-	switch(worldMap[mlx->ray.mapx][mlx->ray.mapy])
-	{
-	case '1':  color = RGB_Red;  break; //red
-	case '2':  color = RGB_Green;  break; //green
-	case '3':  color = RGB_Blue;   break; //blue
-	case '4':  color = RGB_White;  break; //white
-	default: color = RGB_Yellow; break; //yellow
-	}
-
-	//give x and y sides different brightness
-	if (mlx->ray.side == 1) 
-        {color = color / 1.5;}
-
-	//draw the pixels of the stripe as a vertical line
-	ft_drawawall(x, mlx->wall.drawStart, mlx->wall.drawEnd, color, mlx);
+    ft_texture(mlx, x);
 }
 
 int ft_update(t_mlx *mlx)
 {
     mlx->map.img_ptr = mlx_new_image(mlx->win.mlx_ptr, 640, 480);               //create a new empty image 
-    mlx->map.img_data = (int*)mlx_get_data_addr(mlx->map.img_ptr, &mlx->map.bpp,&mlx->map.size_line, &mlx->map.endian);  //get the data stored in the image
-
+    mlx->map.img_data = (int *)mlx_get_data_addr(mlx->map.img_ptr, &mlx->map.bpp,&mlx->map.size_line, &mlx->map.endian);  //get the data stored in the image
+    ft_draw_floorsky(mlx);
     int x;
-
     x = 0;
     while (x < w)
     {

@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 01:18:44 by mbari             #+#    #+#             */
-/*   Updated: 2020/05/14 04:05:03 by mbari            ###   ########.fr       */
+/*   Updated: 2020/05/14 04:36:03 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ void	draw_player(t_mlx *mlx)
 int ft_minmap(t_mlx *mlx)
 {
 	mlx->map.x = 0;
-	while (mlx->map.x < 10)
+	while (mlx->map.x < mapWidth)
 	{
 		mlx->map.y = 0;
-		while (mlx->map.y < 10)
+		while (mlx->map.y < mapHeight)
 		{
 			if (worldMap[mlx->map.x][mlx->map.y] == '1')			//if there is a wall in {x,y} then draw square
 				ft_fill_data(&mlx->map, 1, RGB_Red);
