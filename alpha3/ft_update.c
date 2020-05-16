@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:02:42 by mbari             #+#    #+#             */
-/*   Updated: 2020/05/15 05:58:27 by mbari            ###   ########.fr       */
+/*   Updated: 2020/05/16 01:43:18 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void ft_steps(t_mlx *mlx, int x)
 	if(y2 >= w) y2 = h - 1; //clip
 	while (y1 <= y2)
 	{
-		mlx->map.img_data[y1 * 640 + x] = color;
+		mlx->map.img_data[y1 * w + x] = color;
         y1++;
 	}
 } */
@@ -79,7 +79,8 @@ int ft_draw(t_mlx *mlx, int x)
 
 int ft_update(t_mlx *mlx)
 {
-    mlx->map.img_ptr = mlx_new_image(mlx->win.mlx_ptr, 640, 480);               //create a new empty image 
+    //ft_move(mlx);
+    mlx->map.img_ptr = mlx_new_image(mlx->win.mlx_ptr, w, h);               //create a new empty image 
     mlx->map.img_data = (int *)mlx_get_data_addr(mlx->map.img_ptr, &mlx->map.bpp,&mlx->map.size_line, &mlx->map.endian);  //get the data stored in the image
     ft_draw_floorsky(mlx);
     int x;

@@ -6,23 +6,22 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:34:38 by mbari             #+#    #+#             */
-/*   Updated: 2020/05/13 02:14:55 by mbari            ###   ########.fr       */
+/*   Updated: 2020/05/16 01:37:22 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 
-void ft_rotate(int key, t_mlx *mlx)
+void ft_rotate(t_mlx *mlx)
 {
 	double oldPlaneX;
 	double oldDirX;
     
 	oldPlaneX = mlx->planeX;
 	oldDirX = mlx->dirX;
-    mlx_clear_window(mlx->win.mlx_ptr, mlx->win.win_ptr);
 	//rotate to the right
-    if (key == 100)
+    if (mlx->rotright)
     {
       //both camera direction and camera plane must be rotated
       mlx->dirX = mlx->dirX * cos(-mlx->rotspeed) - mlx->dirY * sin(-mlx->rotspeed);
@@ -31,7 +30,7 @@ void ft_rotate(int key, t_mlx *mlx)
       mlx->planeY = oldPlaneX * sin(-mlx->rotspeed) + mlx->planeY * cos(-mlx->rotspeed);
     }
     //rotate to the left
-    else if (key == 97)
+    if (mlx->rotleft)
     {
       //both camera direction and camera plane must be rotated
       mlx->dirX = mlx->dirX * cos(mlx->rotspeed) - mlx->dirY * sin(mlx->rotspeed);
@@ -41,27 +40,36 @@ void ft_rotate(int key, t_mlx *mlx)
     }	
 }
 
-int	ft_move(int key, t_mlx *mlx)
+int	ft_move(t_mlx *mlx)
 {
-	ft_putnbr(key);
-	if (key == 65307)
-		mlx_destroy_window(mlx->win.mlx_ptr, mlx->win.win_ptr);
-	else if (key == 119)
+	if (mlx->forward)
 	{
-        mlx_clear_window(mlx->win.mlx_ptr, mlx->win.win_ptr);
 		if(worldMap[(int)(mlx->posX + mlx->dirX * mlx->movespeed)][(int)(mlx->posY)] == '0')
-			mlx->posX += mlx->dirX * mlx->movespeed;
+			mlx->posX += mlx->dirX * mlx->movespeed * 0.5;
       	if(worldMap[(int)(mlx->posX)][(int)(mlx->posY + mlx->dirY * mlx->movespeed)] == '0')
-		  	mlx->posY += mlx->dirY * mlx->movespeed;
+		  	mlx->posY += mlx->dirY * mlx->movespeed * 0.5;
 	}
-	else if (key == 115)
+	if (mlx->backward)
 	{
-        mlx_clear_window(mlx->win.mlx_ptr, mlx->win.win_ptr);
 		if(worldMap[(int)(mlx->posX - mlx->dirX * mlx->movespeed)][(int)(mlx->posY)] == '0')
-			mlx->posX -= mlx->dirX * mlx->movespeed;
+			mlx->posX -= mlx->dirX * mlx->movespeed * 0.5;
       	if(worldMap[(int)(mlx->posX)][(int)(mlx->posY - mlx->dirY * mlx->movespeed)] == '0')
-		  	mlx->posY -= mlx->dirY * mlx->movespeed;
+		  	mlx->posY -= mlx->dirY * mlx->movespeed * 0.5;
 	}
-	else if (key == 97 || key == 100)
-		ft_rotate(key, mlx);
+	if (mlx->left)//move left
+	{
+		if(worldMap[(int)(mlx->posX)][(int)(mlx->posY + mlx->dirX * mlx->movespeed)] == '0')
+		  	mlx->posY += mlx->dirX * mlx->movespeed * 0.5;
+		if(worldMap[(int)(mlx->posX - mlx->dirY * mlx->movespeed)][(int)(mlx->posY)] == '0')
+			mlx->posX -= mlx->dirY * mlx->movespeed * 0.5;
+	}
+	if (mlx->right)//move right
+	{
+		if(worldMap[(int)(mlx->posX)][(int)(mlx->posY - mlx->dirX * mlx->movespeed)] == '0')
+		  	mlx->posY -= mlx->dirX * mlx->movespeed * 0.5;
+		if(worldMap[(int)(mlx->posX + mlx->dirY * mlx->movespeed)][(int)(mlx->posY)] == '0')
+			mlx->posX += mlx->dirY * mlx->movespeed * 0.5;
+	}
+	if (mlx->rotleft || mlx->rotright)
+		ft_rotate(mlx);
 }

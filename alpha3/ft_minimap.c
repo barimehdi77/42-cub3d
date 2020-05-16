@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 01:18:44 by mbari             #+#    #+#             */
-/*   Updated: 2020/05/14 04:36:03 by mbari            ###   ########.fr       */
+/*   Updated: 2020/05/16 01:33:28 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void ft_draw_square(t_minmap *img, int scale, int player, int color)
 		img->new_y = img->y * scale; 				        
 		while (img->new_y < img->max_y)				        
 		{						        
-			img->img_data[img->new_x * 640 + img->new_y] = color; 	
+			img->img_data[img->new_x * w + img->new_y] = color; 	
 			img->new_y++;				        
 		}						        
 		img->new_x++;					     
