@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:34:38 by mbari             #+#    #+#             */
-/*   Updated: 2020/05/16 01:37:22 by mbari            ###   ########.fr       */
+/*   Updated: 2020/05/26 16:51:12 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,30 +44,30 @@ int	ft_move(t_mlx *mlx)
 {
 	if (mlx->forward)
 	{
-		if(worldMap[(int)(mlx->posX + mlx->dirX * mlx->movespeed)][(int)(mlx->posY)] == '0')
+		if(mlx->worldmap[(int)(mlx->posX + mlx->dirX * mlx->movespeed)][(int)(mlx->posY)] == '0')
 			mlx->posX += mlx->dirX * mlx->movespeed * 0.5;
-      	if(worldMap[(int)(mlx->posX)][(int)(mlx->posY + mlx->dirY * mlx->movespeed)] == '0')
+      	if(mlx->worldmap[(int)(mlx->posX)][(int)(mlx->posY + mlx->dirY * mlx->movespeed)] == '0')
 		  	mlx->posY += mlx->dirY * mlx->movespeed * 0.5;
 	}
 	if (mlx->backward)
 	{
-		if(worldMap[(int)(mlx->posX - mlx->dirX * mlx->movespeed)][(int)(mlx->posY)] == '0')
+		if(mlx->worldmap[(int)(mlx->posX - mlx->dirX * mlx->movespeed)][(int)(mlx->posY)] == '0')
 			mlx->posX -= mlx->dirX * mlx->movespeed * 0.5;
-      	if(worldMap[(int)(mlx->posX)][(int)(mlx->posY - mlx->dirY * mlx->movespeed)] == '0')
+      	if(mlx->worldmap[(int)(mlx->posX)][(int)(mlx->posY - mlx->dirY * mlx->movespeed)] == '0')
 		  	mlx->posY -= mlx->dirY * mlx->movespeed * 0.5;
 	}
 	if (mlx->left)//move left
 	{
-		if(worldMap[(int)(mlx->posX)][(int)(mlx->posY + mlx->dirX * mlx->movespeed)] == '0')
+		if(mlx->worldmap[(int)(mlx->posX)][(int)(mlx->posY + mlx->dirX * mlx->movespeed)] == '0')
 		  	mlx->posY += mlx->dirX * mlx->movespeed * 0.5;
-		if(worldMap[(int)(mlx->posX - mlx->dirY * mlx->movespeed)][(int)(mlx->posY)] == '0')
+		if(mlx->worldmap[(int)(mlx->posX - mlx->dirY * mlx->movespeed)][(int)(mlx->posY)] == '0')
 			mlx->posX -= mlx->dirY * mlx->movespeed * 0.5;
 	}
 	if (mlx->right)//move right
 	{
-		if(worldMap[(int)(mlx->posX)][(int)(mlx->posY - mlx->dirX * mlx->movespeed)] == '0')
+		if(mlx->worldmap[(int)(mlx->posX)][(int)(mlx->posY - mlx->dirX * mlx->movespeed)] == '0')
 		  	mlx->posY -= mlx->dirX * mlx->movespeed * 0.5;
-		if(worldMap[(int)(mlx->posX + mlx->dirY * mlx->movespeed)][(int)(mlx->posY)] == '0')
+		if(mlx->worldmap[(int)(mlx->posX + mlx->dirY * mlx->movespeed)][(int)(mlx->posY)] == '0')
 			mlx->posX += mlx->dirY * mlx->movespeed * 0.5;
 	}
 	if (mlx->rotleft || mlx->rotright)

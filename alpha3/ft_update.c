@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:02:42 by mbari             #+#    #+#             */
-/*   Updated: 2020/05/16 01:43:18 by mbari            ###   ########.fr       */
+/*   Updated: 2020/06/07 18:16:22 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void ft_steps(t_mlx *mlx, int x)
 	if(y2 >= w) y2 = h - 1; //clip
 	while (y1 <= y2)
 	{
-		mlx->map.img_data[y1 * w + x] = color;
+		mlx->tex.img_data[y1 * w + x] = color;
         y1++;
 	}
 } */
@@ -64,7 +64,7 @@ int ft_draw(t_mlx *mlx, int x)
 {
 	long int color;
 	
-        color = RGB_Red;
+    color = RGB_Red;
 	//Calculate height of line to draw on screen
 	mlx->wall.lineHeight = (int)(h / mlx->ray.perpWallDist);
 	//calculate lowest and highest pixel to fill in current stripe
@@ -80,8 +80,8 @@ int ft_draw(t_mlx *mlx, int x)
 int ft_update(t_mlx *mlx)
 {
     //ft_move(mlx);
-    mlx->map.img_ptr = mlx_new_image(mlx->win.mlx_ptr, w, h);               //create a new empty image 
-    mlx->map.img_data = (int *)mlx_get_data_addr(mlx->map.img_ptr, &mlx->map.bpp,&mlx->map.size_line, &mlx->map.endian);  //get the data stored in the image
+    mlx->tex.img_ptr = mlx_new_image(mlx->win.mlx_ptr, w, h);               //create a new empty image 
+    mlx->tex.img_data = (int *)mlx_get_data_addr(mlx->tex.img_ptr, &mlx->tex.bpp,&mlx->tex.size_line, &mlx->tex.endian);  //get the data stored in the image
     ft_draw_floorsky(mlx);
     int x;
     x = 0;
@@ -105,7 +105,9 @@ int ft_update(t_mlx *mlx)
                 mlx->ray.side = 1;
             }
             //Check if ray has hit a wall
-            if (worldMap[mlx->ray.mapx][mlx->ray.mapy] != '0')
+            /* if (worldMap[mlx->ray.mapx][mlx->ray.mapy] != '0')
+                mlx->ray.hit = 1; */
+            if (mlx->worldmap[mlx->ray.mapx][mlx->ray.mapy] != '0')
                 mlx->ray.hit = 1;
         }
         //Calculate distance projected on camera direction (Euclidean distance will give fisheye effect!)
@@ -124,7 +126,7 @@ int ft_update(t_mlx *mlx)
     ft_minmap(mlx);                              //
     ///////////////////////////////////////////////
     
-    mlx_put_image_to_window(mlx->win.mlx_ptr, mlx->win.win_ptr, mlx->map.img_ptr, 0, 0); //show the image on the window
-    mlx_destroy_image (mlx->win.mlx_ptr, mlx->map.img_ptr);   
+    mlx_put_image_to_window(mlx->win.mlx_ptr, mlx->win.win_ptr, mlx->tex.img_ptr, 0, 0); //show the image on the window
+    mlx_destroy_image (mlx->win.mlx_ptr, mlx->tex.img_ptr);   
     return (0);
 }
