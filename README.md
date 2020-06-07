@@ -27,7 +27,7 @@ The goal of cub3d is to make something using raycasting (like Wolfenstein 3D).
   7. [x] the Game now can read the Map from a .cub file look at ``./maps`` folder.
   8. [x] Player can move to left and right.
   9. [x] fix some bugs in the map reading.
-  - Working on:
+- Working on:
   1. [ ] Edit The Files.
   2. [ ] The texture for the sky and the floor.
   3. [ ] add save to the game (be able to load the game from last position)
