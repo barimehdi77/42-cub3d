@@ -47,6 +47,7 @@ The goal of cub3d is to make something using raycasting (like Wolfenstein 3D).
 **For Mandatory Part:**  
   - started: `28/04/2020`.  
   - The deadline: ` 28/06/2020`.  
+
 **For The Bonus part:**  
   - started: `AFTER FINESH The Mandatory part`.  
   - The Deadline:  `NOT NOW`.
