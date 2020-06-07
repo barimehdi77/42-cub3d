@@ -21,14 +21,16 @@ The goal of cub3d is to make something using raycasting (like Wolfenstein 3D).
   1. [x] The walls are draw
   2. [x] Your Player can Move forward and backward and Rotate to right and left Now.
   3. [x] Minimap.
-  4. [x] Textuer, but just one image for all the walls.
+  4. [x] Textuer, every side of the wall have it's texture.
   5. [x] Draw the sky and the floor color.
-- Working on:
-  1. [ ] Add Texture.
-  2. [ ] Edit The Files.
-  3. [ ] Edit The Map Like in PDF.
-  4. [ ] The texture for the sky and the floor.
-  5. [ ] the player can move to right and the left.
+  6. [x] Add texture for The N,E,W, and S of the wall.
+  7. [x] the Game now can read the Map from a .cub file look at ``./maps`` folder.
+  8. [x] Player can move to left and right.
+  9. [x] fix some bugs in the map reading.
+  - Working on:
+  1. [ ] Edit The Files.
+  2. [ ] The texture for the sky and the floor.
+  3. [ ] add save to the game (be able to load the game from last position)
   
 # cub3d Alpha version 3: (what's new)
 - minimap:
@@ -42,8 +44,12 @@ The goal of cub3d is to make something using raycasting (like Wolfenstein 3D).
 - draw the sky and the floor
 
 # The project Deadline
-- started: `28/04/2020`.
-- The deadline: ` 28/05/2020`.
+**For Mandatory Part:**  
+  - started: `28/04/2020`.  
+  - The deadline: ` 28/06/2020`.  
+**For The Bonus part:**  
+  - started: `AFTER FINESH The Mandatory part`.  
+  - The Deadline:  `NOT NOW`.
 # Ressources
 - [Playable Wolfenstein 3D](http://users.atw.hu/wolf3d/)
 - [Raycasting in JS](http://www.playfuljs.com/a-first-person-engine-in-265-lines/)
