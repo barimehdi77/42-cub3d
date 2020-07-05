@@ -16,7 +16,7 @@ NAME = cub3d
 
 INCLUDES = /ft_printf/includes/libftprintf.h ./ft_printf/libft/libft.h cub3d.h
 
-MINILIBX = -Lminilibx -lmlx -L/usr/X11/lib -lXext -lX11 -lm -lbsd
+MINILIBX = -Lminilibx -lmlx -L/usr/X11/lib -lXext -lX11 -lm -lbsd -g
 
 NAMELIB = libftprintf.a
 

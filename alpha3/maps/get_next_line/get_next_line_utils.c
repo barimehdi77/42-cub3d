@@ -6,13 +6,13 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 23:34:36 by mbari             #+#    #+#             */
-/*   Updated: 2020/06/07 21:42:32 by mbari            ###   ########.fr       */
+/*   Updated: 2020/01/23 23:47:42 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-/*size_t				ft_strlen(const char *str)
+size_t				ft_strlen(const char *str)
 {
 	size_t	i;
 
@@ -20,7 +20,7 @@
 	while (str[i] != '\0')
 		i++;
 	return (i);
-} */
+}
 
 char				*ft_strdup(const char *s1)
 {

@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 15:49:17 by mbari             #+#    #+#             */
-/*   Updated: 2020/06/07 21:00:01 by mbari            ###   ########.fr       */
+/*   Updated: 2020/06/21 16:34:24 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void ft_draw_floorsky(t_mlx *mlx)
         y = 0;
         while (y < h / 2)
         {
-            mlx->tex.img_data[y * w + x] = 0x87ceeb;
+            mlx->tex.img_data[y * w + x] = mlx->sky_color;//0x87ceeb;
             y++;
         }
         x++;
@@ -61,7 +61,7 @@ void ft_draw_floorsky(t_mlx *mlx)
         y = h / 2;
         while (y < h)
         {
-            mlx->tex.img_data[y * w + x] = 0x6b6b6b;
+            mlx->tex.img_data[y * w + x] = mlx->floor_color;//0x6b6b6b;
             y++;
         }
         x++;
@@ -84,12 +84,14 @@ void ft_start_game(char *fname)
     mlx.tex.txt1 = mlx_xpm_file_to_image(mlx.win.mlx_ptr, mlx.tex.txt1_path, &mlx.tex.txt1_w, &mlx.tex.txt1_h);
     mlx.tex.txt1_data = (int *)mlx_get_data_addr(mlx.tex.txt1, &mlx.tex.txt1_bp, &mlx.tex.txt1_sl, &mlx.tex.txt1_end);
     mlx.tex.txt2 = mlx_xpm_file_to_image(mlx.win.mlx_ptr, mlx.tex.txt2_path, &mlx.tex.txt2_w, &mlx.tex.txt2_h);
-    mlx.tex.txt2_data = (int *)mlx_get_data_addr(mlx.tex.txt2, &mlx.tex.txt2_bp, &mlx.tex.txt1_sl, &mlx.tex.txt2_end);
+    mlx.tex.txt2_data = (int *)mlx_get_data_addr(mlx.tex.txt2, &mlx.tex.txt2_bp, &mlx.tex.txt2_sl, &mlx.tex.txt2_end);
     mlx.tex.txt3 = mlx_xpm_file_to_image(mlx.win.mlx_ptr, mlx.tex.txt3_path, &mlx.tex.txt3_w, &mlx.tex.txt3_h);
-    mlx.tex.txt3_data = (int *)mlx_get_data_addr(mlx.tex.txt3, &mlx.tex.txt3_bp, &mlx.tex.txt1_sl, &mlx.tex.txt3_end);
+    mlx.tex.txt3_data = (int *)mlx_get_data_addr(mlx.tex.txt3, &mlx.tex.txt3_bp, &mlx.tex.txt3_sl, &mlx.tex.txt3_end);
     mlx.tex.txt4 = mlx_xpm_file_to_image(mlx.win.mlx_ptr, mlx.tex.txt4_path, &mlx.tex.txt4_w, &mlx.tex.txt4_h);
-    mlx.tex.txt4_data = (int *)mlx_get_data_addr(mlx.tex.txt4, &mlx.tex.txt4_bp, &mlx.tex.txt1_sl, &mlx.tex.txt4_end);
-    ft_printf("|%d||%d||%d||%d|", mlx.tex.txt1_w, mlx.tex.txt2_w, mlx.tex.txt3_w, mlx.tex.txt4_w);
+    mlx.tex.txt4_data = (int *)mlx_get_data_addr(mlx.tex.txt4, &mlx.tex.txt4_bp, &mlx.tex.txt4_sl, &mlx.tex.txt4_end);
+    mlx.tex.sp = mlx_xpm_file_to_image(mlx.win.mlx_ptr, mlx.tex.sp_path, &mlx.tex.sp_w, &mlx.tex.sp_h);
+    mlx.tex.sp_data = (int *)mlx_get_data_addr(mlx.tex.txt4, &mlx.tex.sp_bp, &mlx.tex.sp_sl, &mlx.tex.sp_end);
+    //ft_printf("|%d||%d||%d||%d|", mlx.tex.txt1_w, mlx.tex.txt2_w, mlx.tex.txt3_w, mlx.tex.txt4_w);
     mlx_hook(mlx.win.win_ptr, 2, (1L << 0), key_pressed, &mlx);
     mlx_hook(mlx.win.win_ptr, 3, (1L << 1), key_released, &mlx);
     mlx_loop_hook(mlx.win.mlx_ptr, ft_loop, &mlx);
@@ -104,5 +106,5 @@ int main(int ac, char **av)
         ft_printf("Too many args please check\n");
     else 
         ft_start_game(av[1]);
-    //ft_start_game("maps/1.cub"); 
+    //ft_start_game("maps/5.cub"); 
 }

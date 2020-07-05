@@ -3,4 +3,4 @@
 make fclean
 make
 make clean
-./cub3d maps/4.cub
+./cub3d maps/3.cub

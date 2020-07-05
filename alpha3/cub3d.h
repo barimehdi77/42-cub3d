@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by mbari             #+#    #+#             */
-/*   Updated: 2020/06/07 20:38:03 by mbari            ###   ########.fr       */
+/*   Updated: 2020/06/21 16:32:50 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,6 +143,14 @@ typedef struct	s_textuer
 	int  txt4_bp;
 	int  txt4_sl;
 	int  txt4_end;
+	void			*sp;
+	int				*sp_data;
+	char *sp_path;
+	int  sp_w;
+	int  sp_h;
+	int  sp_bp;
+	int  sp_sl;
+	int  sp_end;
 	void *img_ptr;
 	int	 *img_data;
 	void *img_xpm;
@@ -161,6 +169,8 @@ typedef	struct	s_mlx
 {
 	char	**worldmap;
 	char	**lines;
+	long int floor_color;
+	long int sky_color;
 	int		max_x;
 	int		max_y;
 	//x and y start position
@@ -214,5 +224,6 @@ char	**get_filelines(char **lines, char **tmp, int fd);
 int		choose_param(char c, char *str , t_mlx *mlx);
 char	**parse_parameters(t_mlx *mlx, char **lines);
 char **edit_map(char **oldmap, t_mlx *mlx);
+void	read_cf_color(char *s, t_mlx *mlx, char type);
 
 #endif

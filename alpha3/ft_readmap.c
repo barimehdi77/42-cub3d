@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/25 17:03:00 by mbari             #+#    #+#             */
-/*   Updated: 2020/06/07 20:59:12 by mbari            ###   ########.fr       */
+/*   Updated: 2020/06/21 16:31:02 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,32 @@ void read_resolution(char *s, t_mlx *mlx)
 	while (*s == ' ')
 		s++;
 	mlx->win.heigth = ft_atoi(s);
+	if (mlx->win.width > 1366) mlx->win.width = 1366;
+	if (mlx->win.heigth > 768) mlx->win.heigth = 768;
+}
+
+void	read_cf_color(char *s, t_mlx *mlx, char type)
+{
+	long int color;
+	char *stor;
+	int i;
+
+	i = 3;
+	stor = (char *)malloc(sizeof(char) * 10);
+	while (i > 0)
+	{
+		while (*s == ' ' || *s == ',')
+			s++;
+		color = ft_atoi(s);
+		s += ft_intsize(color);
+		stor = ft_strjoin(stor, ft_itoa(color));
+		i--;
+	}
+	if (type == 'f')
+		mlx->floor_color = ft_atoi(stor);
+	else if (type == 'c')
+		mlx->sky_color = ft_atoi((stor));
+	free(stor);
 }
 
 int		choose_param(char c, char *str , t_mlx *mlx)
@@ -89,12 +115,12 @@ int		choose_param(char c, char *str , t_mlx *mlx)
 		read_txt(4, str + 2, mlx);
 	else if (c == 'E' && *(str + 1) == 'A' && *(str + 2) == ' ')
 		read_txt(3, str + 2, mlx);
-	/*else if (c == 'F' && *(str + 1) == ' ')
-		read_floor(str + 1, p);
+	else if (c == 'F' && *(str + 1) == ' ')
+		read_cf_color(str + 1, mlx, 'f');
 	else if (c == 'C' && *(str + 1) == ' ')
-		read_sold_iy(str + 1, p);
+		read_cf_color(str + 1, mlx, 'c');
 	else if (c == 'S' && *(str + 1) == ' ')
-		read_txt(5, str + 1, p); */
+		read_txt(5, str + 1, mlx); 
 	if (c == '1' || c == '0' || c == '2')
 		return (0);
 	/* else if (c)

@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 01:18:44 by mbari             #+#    #+#             */
-/*   Updated: 2020/06/07 20:39:27 by mbari            ###   ########.fr       */
+/*   Updated: 2020/06/21 15:53:47 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int ft_minmap(t_mlx *mlx)
 		while (mlx->map.y < mlx->max_y)
 		{
 			if (mlx->worldmap[mlx->map.x][mlx->map.y] == '1')			//if there is a wall in {x,y} then draw square
-				ft_fill_data(mlx, 1, RGB_Red);
+				ft_fill_data(mlx, 1, RGB_Blue);
 			else if (mlx->worldmap[mlx->map.x][mlx->map.y] == '2')			//if there is a wall in {x,y} then draw square
 				ft_fill_data(mlx, 1, RGB_Green);
 			else if (mlx->worldmap[mlx->map.x][mlx->map.y] == '3')			//if there is a wall in {x,y} then draw square
@@ -72,7 +72,7 @@ int ft_minmap(t_mlx *mlx)
 				ft_fill_data(mlx, 1, RGB_White);
 			else if (mlx->worldmap[mlx->map.x][mlx->map.y] == '0'  ||
 						 mlx->worldmap[mlx->map.x][mlx->map.y] == 'N')
-				ft_fill_data(mlx, 1, 0xFF30FF);
+				ft_fill_data(mlx, 1, mlx->floor_color);
 			else
 				ft_fill_data(mlx, 1, RGB_Yellow);
 			mlx->map.y++;

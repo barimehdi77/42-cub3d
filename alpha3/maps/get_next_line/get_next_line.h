@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 23:34:23 by mbari             #+#    #+#             */
-/*   Updated: 2020/06/07 21:42:33 by mbari            ###   ########.fr       */
+/*   Updated: 2020/01/23 23:34:26 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strchr(const char *s, int c);
-int		get_line(char **str, int n, char **line, int fd);
+int		ft_return(char **rem, int n, char **line, int fd);
 int		get_next_line(int fd, char **line);
 #endif
