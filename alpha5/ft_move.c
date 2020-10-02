@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:34:38 by mbari             #+#    #+#             */
-/*   Updated: 2020/05/26 16:51:12 by mbari            ###   ########.fr       */
+/*   Updated: 2020/09/02 16:24:41 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	ft_move(t_mlx *mlx)
 			mlx->posX += mlx->dirX * mlx->movespeed * 0.5;
       	if(mlx->worldmap[(int)(mlx->posX)][(int)(mlx->posY + mlx->dirY * mlx->movespeed)] == '0')
 		  	mlx->posY += mlx->dirY * mlx->movespeed * 0.5;
+		//printf("|posx= %f||posy= %f|",mlx->posX,mlx->posY);
 	}
 	if (mlx->backward)
 	{

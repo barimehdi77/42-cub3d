@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by mbari             #+#    #+#             */
-/*   Updated: 2020/08/20 14:40:04 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/02 20:06:48 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -234,5 +234,10 @@ char	**parse_parameters(t_mlx *mlx, char **lines);
 char **edit_map(char **oldmap, t_mlx *mlx);
 void	read_cf_color(char *s, t_mlx *mlx, char type);
 void ft_sprite(t_mlx *mlx, double *zbuffer);
+void    screno(t_mlx *mlx);
+void screen_shot(t_mlx *mlx);
+
+int ft_update2(t_mlx *mlx);
+
 
 #endif

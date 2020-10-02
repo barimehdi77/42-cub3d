@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 15:49:17 by mbari             #+#    #+#             */
-/*   Updated: 2020/08/20 21:56:28 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/02 20:17:37 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void ft_inti(t_mlx *mlx)
 {
     mlx->win.mlx_ptr = mlx_init();
-    mlx->posX = 10;
+    mlx->posX = 10.5;
 	mlx->posY = 9.5;
 	mlx->dirX = -1;
 	mlx->dirY = 0;
@@ -75,7 +75,7 @@ int ft_loop(t_mlx *mlx)
     return (0);
 }
 
-void ft_start_game(char *fname)
+void ft_start_game(char *fname, int save)
 {
     t_mlx mlx;
 
@@ -94,10 +94,38 @@ void ft_start_game(char *fname)
     mlx.tex.sp = mlx_xpm_file_to_image(mlx.win.mlx_ptr, mlx.tex.sp_path, &mlx.tex.sp_w, &mlx.tex.sp_h);
     mlx.tex.sp_data = (int *)mlx_get_data_addr(mlx.tex.sp, &mlx.tex.sp_bp, &mlx.tex.sp_sl, &mlx.tex.sp_end);
     //ft_printf("|%d||%d||%d||%d|", mlx.tex.txt1_w, mlx.tex.txt2_w, mlx.tex.txt3_w, mlx.tex.txt4_w);
+    if (save == 1)
+        return(screen_shot(&mlx));
     mlx_hook(mlx.win.win_ptr, 2, (1L << 0), key_pressed, &mlx);
     mlx_hook(mlx.win.win_ptr, 3, (1L << 1), key_released, &mlx);
     mlx_loop_hook(mlx.win.mlx_ptr, ft_loop, &mlx);
     mlx_loop(mlx.win.mlx_ptr);
+}
+int		ft_savecheck(char *arg, char *save)
+{
+	int	i;
+
+	i = 0;
+	while (arg[i] == save[i])
+	{
+		if (arg[i] == '\0' && save[i] == '\0')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int		ft_namecheck(char *arg, char *ext)
+{
+	int	i;
+
+	i = 0;
+	while (arg[i] != '\0')
+		i++;
+	if ((i > 4 && arg[i - 1] == ext[2] && arg[i - 2] == ext[1])
+		&& (arg[i - 3] == ext[0] && arg[i - 4] == '.'))
+		return (1);
+	return (0);
 }
 
 int main(int ac, char **av)
@@ -106,7 +134,15 @@ int main(int ac, char **av)
        ft_printf("\nPlease choose The map\nthe maps in file named maps\n./cub3d maps/*.cub\n");
     else if (ac > 2)
         ft_printf("Too many args please check\n");
-    else  */
-        ft_start_game(av[1]);
-    //ft_start_game("maps/5.cub"); 
+    else  
+        ft_start_game(av[1]); */
+        
+    if (ac == 3 && ft_namecheck(av[1], "cub") && ft_savecheck(av[2], "--save"))
+		ft_start_game(av[1], 1);
+	else if (ac == 2 && ft_namecheck(av[1], "cub"))
+		ft_start_game(av[1], 0);
+	else
+		write(2, "Error : Invalid arguments\n", 26);
+
+	return (0);
 }

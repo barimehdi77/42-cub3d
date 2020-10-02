@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/25 17:03:00 by mbari             #+#    #+#             */
-/*   Updated: 2020/08/16 14:45:38 by mbari            ###   ########.fr       */
+/*   Updated: 2020/09/02 16:24:03 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -230,10 +230,10 @@ char **edit_map(char **oldmap, t_mlx *mlx)
 						mlx->posX = i;
 						mlx->posY = j;
 					}
-					if (newmap[i][j] == '2')
+					else if (newmap[i][j] == '2')
 					{
-						mlx->sp.x = i;
-						mlx->sp.y = j;
+						mlx->sp.x = i + 0.5;
+						mlx->sp.y = j + 0.5;
 					}
 					j++;
 					old_j++;

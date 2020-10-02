@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/16 00:04:49 by mbari             #+#    #+#             */
-/*   Updated: 2020/05/16 02:03:46 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/02 19:47:05 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int key_pressed(int key, t_mlx *mlx)
 {
     if (key == 65307)
-	    mlx_destroy_window(mlx->win.mlx_ptr, mlx->win.win_ptr);
+        mlx_destroy_window(mlx->win.mlx_ptr, mlx->win.win_ptr);
     if (key == 119)
         mlx->forward = 1;
     if (key == 115)
