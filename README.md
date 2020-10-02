@@ -15,7 +15,7 @@ The goal of cub3d is to make something using raycasting (like Wolfenstein 3D).
 - Collectable items
 
 # Till Now
-`NOTE: The project still under working so This's not Thr final result`
+`NOTE: The project still under working so This's not The final result`
 # What is finished?
 - The Things that just finished
   1. [x] The walls are draw
@@ -27,12 +27,13 @@ The goal of cub3d is to make something using raycasting (like Wolfenstein 3D).
   7. [x] the Game now can read the Map from a .cub file look at ``./maps`` folder.
   8. [x] Player can move to left and right.
   9. [x] fix some bugs in the map reading.
+  10. [x] add --save flag get a screen shot to the map.
 - Working on:
   1. [ ] Edit The Files.
   2. [ ] The texture for the sky and the floor.
-  3. [ ] add save to the game (be able to load the game from last position)
+  3. [ ] Fix some bugs in map files.
   
-# cub3d Alpha version 3: (what's new)
+# cub3d Alpha version 5: (what's new)
 - minimap:
   - Now The minimap draw the wall with the color like in the map
   - Add the position of the player
@@ -42,11 +43,14 @@ The goal of cub3d is to make something using raycasting (like Wolfenstein 3D).
 - give x and y sides different brightness in the wall
 - The textuer for all the walls
 - draw the sky and the floor
+- Add The ability to get a screenshot to The map.
+# ScreenShot From The Game:
+![Image From The game](https://github.com/barimehdi77/ft_cub3d/blob/master/alpha5/screenshot.bmp)
 
 # The project Deadline
 **For Mandatory Part:**  
   - started: `28/04/2020`.  
-  - The deadline: ` 28/06/2020`.  
+  - The deadline: ` 01/11/2020`.  
 
 **For The Bonus part:**  
   - started: `AFTER FINESH The Mandatory part`.  
