@@ -15,14 +15,14 @@ The goal of cub3d is to make something using raycasting (like Wolfenstein 3D).
 - Collectable items
 
 # Till Now
-`NOTE: The project still under working so This's not The final result`
-  **What's New?** 
-    -The Mandatory Part is Done Just need to be normed.
-    -HUD:
-        -The MiniMap is done
-        -need some other Things.
-    -Sprite:
-        -Now You can add More Then one sprite.
+`NOTE: The project still under working so This's not The final result`. <br />
+>**What's New?**<br />
+>>    - The Mandatory Part is Done Just need to be normed.<br />
+>>    - HUD:<br />
+>>>        - The MiniMap is done.<br />
+>>>        - need some other Things.<br />
+>>    - Sprite:<br />
+>>>        - Now You can add More Then one sprite.<br />
 # What is finished?
 - The Things that just finished
   1. [x] The walls are draw
