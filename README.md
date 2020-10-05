@@ -23,8 +23,8 @@ The goal of cub3d is to make something using raycasting (like Wolfenstein 3D).
 >>>        - need some other Things.<br />
 >>    - Sprite:<br />
 >>>        - Now You can add More Then one sprite.<br />
->>    - Fix Some Bugs.
->      The Game Is Still Under Devlop so May There's some other Bugs (^-^).
+>>    - Fix Some Bugs.<br />
+>      The Game Is Still Under Devlop so May There's some other Bugs (^-^).<br /><br />
 # What is finished?
 - The Things that just finished
   1. [x] The walls are draw
