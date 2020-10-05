@@ -60,7 +60,7 @@ The goal of cub3d is to make something using raycasting (like Wolfenstein 3D).
 - draw the sky and the floor
 - Add The ability to get a screenshot to The map.
 # ScreenShot From The Game:
-![Image From The game](https://github.com/barimehdi77/ft_cub3d/blob/master/alpha5/screenshot.bmp)
+![Image From The game](https://github.com/barimehdi77/ft_cub3d/blob/master/screenshot.bmp)
 
 # The project Deadline
 **For Mandatory Part:**  
