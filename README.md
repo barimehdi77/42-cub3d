@@ -16,6 +16,13 @@ The goal of cub3d is to make something using raycasting (like Wolfenstein 3D).
 
 # Till Now
 `NOTE: The project still under working so This's not The final result`
+  **What's New?** 
+    -The Mandatory Part is Done Just need to be normed.
+    -HUD:
+        -The MiniMap is done
+        -need some other Things.
+    -Sprite:
+        -Now You can add More Then one sprite.
 # What is finished?
 - The Things that just finished
   1. [x] The walls are draw
@@ -28,10 +35,16 @@ The goal of cub3d is to make something using raycasting (like Wolfenstein 3D).
   8. [x] Player can move to left and right.
   9. [x] fix some bugs in the map reading.
   10. [x] add --save flag get a screen shot to the map.
+  11. [x] All The bugs in Map files has been fixed.
+  12. [x] Fix some Bugs.
 - Working on:
   1. [ ] Edit The Files.
   2. [ ] The texture for the sky and the floor.
-  3. [ ] Fix some bugs in map files.
+  3. [ ] Ability to look up and Down.
+  4. [ ] jump or couch.
+  5. [ ] More items in the Maze.
+  6. [ ] secret Doors.
+  7. [ ] Sounds and Music.
   
 # cub3d Alpha version 5: (what's new)
 - minimap:
