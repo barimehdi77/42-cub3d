@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/06 00:57:55 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/06 00:57:56 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/06 01:34:41 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,9 @@ void    screno(t_mlx *mlx)
         }
         x++;
     }
+    ft_printf("Taking ScreenShoot....\n");
     FILE *fout = fopen("screenshot.bmp", "wb");
+    ft_printf("ScreenShot Has been saved under The name 'screenshot.bmp'.]\n");
     fwrite(header, 1, 54, fout);
     fwrite((char*)buf, 1, imagesize, fout);
     fclose(fout);
