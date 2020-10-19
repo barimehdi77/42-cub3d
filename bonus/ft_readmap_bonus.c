@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_readmap.c                                       :+:      :+:    :+:   */
+/*   ft_readmap_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/25 17:03:00 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/17 16:51:56 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/19 09:10:48 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../includes/cub3d_bonus.h"
 
 char	**get_filelines(char **lines, char **tmp, int fd)
 {
@@ -120,7 +120,7 @@ void	ft_readmap(char *fname, t_mlx *mlx)
 	tmp = NULL;
 	if ((fd = open(fname, O_RDONLY)) < 0)
 		ft_put_error("map file not found\n", mlx);
-	mlx->lines = 0;
+	mlx->lines = NULL;
 	mlx->lines = get_filelines(mlx->lines, tmp, fd);
 	close(fd);
 	init_params(mlx);

@@ -6,21 +6,11 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 23:34:36 by mbari             #+#    #+#             */
-/*   Updated: 2020/06/07 21:42:32 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/17 12:31:39 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-/*size_t				ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-} */
 
 char				*ft_strdup(const char *s1)
 {

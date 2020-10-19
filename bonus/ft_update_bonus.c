@@ -6,11 +6,11 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:02:42 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/17 16:58:32 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/17 17:27:39 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../includes/cub3d_bonus.h"
 
 void	ft_steps_y(t_mlx *mlx)
 {
@@ -104,6 +104,7 @@ int		ft_update(t_mlx *mlx, int screenshot)
 		ft_draw(mlx, x);
 	}
 	ft_drawsprites(mlx);
+	ft_minmap(mlx);
 	if (screenshot == NO)
 	{
 		mlx_put_image_to_window(mlx->win.mlx_ptr, mlx->win.win_ptr,

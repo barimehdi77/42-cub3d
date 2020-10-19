@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 15:49:17 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/19 10:50:07 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/19 12:57:27 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../includes/cub3d_bonus.h"
 
 void	ft_inti(t_mlx *mlx)
 {
@@ -70,7 +70,7 @@ void	ft_start_game(char *fname, int save)
 	ft_printf("[Starting The Game...!]\n");
 	mlx_hook(mlx.win.win_ptr, 2, (1L << 0), key_pressed, &mlx);
 	mlx_hook(mlx.win.win_ptr, 3, (1L << 1), key_released, &mlx);
-	mlx_hook(mlx.win.win_ptr, 17, 1L << 5, close_game, &mlx);
+	mlx_hook(mlx.win.win_ptr, 17, (1L << 5), close_game, &mlx);
 	mlx_loop_hook(mlx.win.mlx_ptr, ft_loop, &mlx);
 	mlx_loop(mlx.win.mlx_ptr);
 }

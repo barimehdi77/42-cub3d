@@ -6,11 +6,11 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 10:08:28 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/14 13:45:20 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/17 17:27:17 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../includes/cub3d_bonus.h"
 
 void	ft_rotleft(t_mlx *mlx, double oldplanex, double olddirx)
 {

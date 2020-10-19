@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mbari <marvin@42.fr>                       +#+  +:+       +#+         #
+#    By: mbari <mbari@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/30 09:48:13 by mbari             #+#    #+#              #
-#    Updated: 2019/12/09 00:42:30 by mbari            ###   ########.fr        #
+#    Updated: 2020/10/18 12:15:39 by mbari            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,18 +33,18 @@ CFLAGS = -Wall -Werror -Wextra
 all: $(NAME)
 
 bonus:  $(BONUS_OBJ)
-		ar rc $(NAME) $(BONUS_OBJ)
-		ranlib $(NAME)
+	@ar rc $(NAME) $(BONUS_OBJ)
+	@ranlib $(NAME)
 
 $(NAME): $(OBJ)
-		$(CC) $(CFLAGS) -c $(SRC)
-		ar rc $(NAME) $(OBJ)
-		ranlib $(NAME)
+	@$(CC) $(CFLAGS) -c $(SRC)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
 
 clean: 
-	/bin/rm -f $(OBJ) $(BONUS_OBJ)
+	@/bin/rm -f $(OBJ) $(BONUS_OBJ)
 
 fclean: clean
-		/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME)
 
 re: fclean all

@@ -6,11 +6,11 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/15 01:45:06 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/17 13:15:04 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/17 17:27:37 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../includes/cub3d_bonus.h"
 
 void	choose_texture(t_mlx *mlx, t_ray *ray)
 {

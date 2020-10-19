@@ -2,7 +2,7 @@
 R 1000 750
 
 F 150    ,     100      ,    214
-C 50 ,    197,   214
+C 77 ,    197   ,   214
      
 NO ./textures/texture1.xpm
 SO ./textures/texture2.xpm

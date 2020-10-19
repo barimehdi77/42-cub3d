@@ -5,45 +5,92 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mbari <mbari@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/05/20 23:42:54 by mbari             #+#    #+#              #
-#    Updated: 2020/10/06 01:01:43 by mbari            ###   ########.fr        #
+#    Created: 2020/10/14 08:34:17 by mbari             #+#    #+#              #
+#    Updated: 2020/10/19 13:46:41 by mbari            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+
 #!/bin/bash
 
-NAME = cub3d
+MLX = -lmlx -lm -framework OpenGL -framework AppKit
 
-INCLUDES = /ft_printf/includes/libftprintf.h ./ft_printf/libft/libft.h includes/cub3d.h
+NAME = cub3D
 
-MINILIBX = -Lminilibx -lmlx -L/usr/X11/lib -lXext -lX11 -lm -lbsd -g
+NAMELIB = printflib.a
 
-NAMELIB = libftprintf.a
+SRCS = 	files/ft_init.c \
+		files/ft_key_pressed.c \
+		files/ft_move.c \
+		files/ft_player.c \
+		files/ft_puterror.c \
+		files/ft_readmap.c \
+		files/ft_screenshot.c \
+		files/ft_sprite.c \
+		files/ft_texture.c \
+		files/ft_update.c \
+		files/ft_check.c \
+		files/ft_draw.c \
+		files/main.c
 
-FLAGS = -Wall -Wextra -Werror
+B_SRCS	=	bonus/ft_init_bonus.c \
+			bonus/ft_key_pressed_bonus.c \
+			bonus/ft_move_bonus.c \
+			bonus/ft_minimap_bonus.c \
+			bonus/ft_player_bonus.c \
+			bonus/ft_puterror_bonus.c \
+			bonus/ft_readmap_bonus.c \
+			bonus/ft_screenshot_bonus.c \
+			bonus/ft_sprite_bonus.c \
+			bonus/ft_texture_bonus.c \
+			bonus/ft_update_bonus.c \
+			bonus/ft_check_bonus.c \
+			bonus/ft_draw_bonus.c \
+			bonus/main_bonus.c
 
-SRC_FT_CUB3D = files/*.c ./get_next_line/*.c
+CC = gcc
 
-OBJ = *.o ./get_next_line/*.o
+CFLAGS = -Wall -Werror -Wextra -g
 
-all: $(NAME)
+GETNEXT =	get_next_line/get_next_line.c \
+			get_next_line/get_next_line_utils.c
 
-$(NAMELIB):
-	make -C ./ft_printf
-	cp ./ft_printf/$(NAMELIB) .
-	
-$(NAME):$(NAMELIB)
-	gcc $(SRC_FT_CUB3D) $(NAMELIB) -D BUFFER_SIZE=32 -I $(INCLUDES) $(MINILIBX) -o $(NAME)
-	
+OBJ = $(SRCS:.c=.o)
+B_OBJ = $(B_SRCS:%.c=%.o) 
+OBJGET	= $(GETNEXT:.c=.o)
 
-clean:
-	make clean -C ft_printf
-	rm -f $(OBJ)
-	rm -f libftprintf.a
+$(NAME) : $(OBJ) $(OBJGET)
+	@echo "\033[31m[Remove last version Of Cub3D...]"
+	@rm -rf Cub3D
+	@$(MAKE) -C ./ft_printf
+	@mv ./ft_printf/printflib.a .
+	@echo "\033[32m[Cub3D compilation...]"
+	@$(CC) $(OBJ) $(OBJGET) -I ./includes -Wall -Wextra -Werror $(MLX) $(NAMELIB) -o $(NAME) -g
+	@echo "\033[34m[Done !]"
 
-fclean: clean
-	make fclean -C ft_printf
-	rm -f *.a screenshot.bmp
-	rm -rf cub3d
+bonus :  $(B_OBJ) $(OBJGET)
+	@echo "\033[31m[Remove last version Of Cub3D...]"
+	@rm -rf Cub3D
+	@$(MAKE) -C ./ft_printf
+	@mv ./ft_printf/printflib.a .
+	@echo "\033[32m[Cub3D compilation...]"
+	@$(CC) $(B_OBJ) $(OBJGET) -I ./includes -Wall -Wextra -Werror $(MLX) $(NAMELIB) -o $(NAME) -g
+	@echo "\033[34m[Done !]"
 
-re: fclean all
+all : $(NAME)
+
+clean :
+	@echo "\033[31m[Cleaning The Old Files...!]\033[34m"
+	@rm -rf $(OBJ) $(B_OBJ)
+	@$(MAKE) clean -C ./ft_printf
+
+fclean : clean
+	@echo "\033[31m[Cleaning printf Files...!]"
+	@$(MAKE) fclean -C ./ft_printf
+	@rm -rf printflib.a
+	@echo "\033[31m[Cleaning Cub3D Files...!]"
+	@rm -rf $(NAME) $(OBJ) $(OBJGET)
+	@echo "\033[31m[Deleting Old Screenshot...!]"
+	@rm -rf Screenshot.bmp
+
+re : fclean all

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 14:24:02 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/18 13:49:32 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/19 09:50:26 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef CUB3D_BONUS_H
+# define CUB3D_BONUS_H
 
 # include <mlx.h>
 # include <stdio.h>
@@ -19,7 +19,7 @@
 # include <stdlib.h>
 # include <math.h>
 # include <stdint.h>
-# include "structs.h"
+# include "structs_bonus.h"
 # include "../ft_printf/includes/libftprintf.h"
 # include "../get_next_line/get_next_line.h"
 # include "../ft_printf/libft/libft.h"
@@ -94,5 +94,8 @@ void			ft_wallside(t_mlx *mlx, int x);
 void			ft_inti(t_mlx *mlx);
 void			ft_draw_floorsky(t_mlx *mlx);
 void			ft_start_game(char *fname, int save);
+void			ft_fill_data(t_mlx *mlx, int iswall, int color);
+void			draw_player(t_mlx *mlx);
+int				ft_minmap(t_mlx *mlx);
 
 #endif

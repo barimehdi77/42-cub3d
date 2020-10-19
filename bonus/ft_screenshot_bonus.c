@@ -6,11 +6,11 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/06 00:57:55 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/17 14:39:50 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/17 17:27:32 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../includes/cub3d_bonus.h"
 
 t_screenshot		*ft_init_shot(t_mlx *mlx)
 {
