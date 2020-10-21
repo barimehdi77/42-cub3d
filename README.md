@@ -79,7 +79,7 @@ The goal of cub3d is to make something using raycasting (like Wolfenstein 3D).
 **For The Bonus part:**  
   - started: `20/10/2020`.  
   - The Deadline:  `01/11/2020`.
-# Ressources
+# Resources
 - [Playable Wolfenstein 3D](http://users.atw.hu/wolf3d/)
 - [Raycasting in JS](http://www.playfuljs.com/a-first-person-engine-in-265-lines/)
 - [Some X11 event numbers](https://github.com/qst0/ft_libgfx)
