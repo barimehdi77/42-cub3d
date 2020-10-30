@@ -1,25 +1,25 @@
-R 848 480
+R 299 290
 
-NO textures/sky_1.xpm
+EA ./textures/cat4.xpm
+NO ./textures/cat1.xpm
+SO ./textures/cat2.xpm
+WE ./textures/cat3.xpm
 
-SO textures/sky_1.xpm
+S ./textures/barrel.xpm
+CO ./textures/bit.xpm
+NC ./textures/bomb.xpm
+H ./textures/heart.xpm
 
-WE textures/sky_1.xpm
-
-EA textures/sky_1.xpm
-
-S textures/sprite_1.xpm
-
-SU textures/sprite_2.xpm
-
-SC textures/sprite_3.xpm
+CT ./textures/sky_1.xpm
+FT ./textures/texture4.xpm
 
 F 184,113,39
-
 C 51,198,227
 
+DS ./textures/died.xpm
+WS ./textures/win.xpm
 
 
 111
-1S1
+1SC1
 111

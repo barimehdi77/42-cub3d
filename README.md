@@ -7,24 +7,26 @@ The goal of cub3d is to make something using raycasting (like Wolfenstein 3D).
 - WASD to move, QE or Left/Right directional keys to rotate camera
 - I to toggle Interface, O to toggle crosshair, L to toggle shadows
 - ESC to quit
-- Textures or colors for each sides (North, South, West, East) and Sky/Floor
-- Shadows based on the distance
+- Textures for each sides (North, South, West, East) and Sky/Floor
 - Crosshair
 - 3 different sprites
 - Minimap
 - Collectable items
 
 # Till Now
-`NOTE: The project still under working so This's not The final result`. <br />
+`NOTE: The project is Finished Now, So this is The last Version (maybe?)`. <br />
 >**What's New?**<br />
 >>    - The Mandatory Part is Done Just need to be normed.<br />
+>>    - The Bonus Part is Done Just need to be normed.<br />
 >>    - HUD:<br />
 >>>        - The MiniMap is done.<br />
->>>        - need some other Things.<br />
+>>>        - Heart to show you how many life you have.<br />
+>>>        - Counting score.<br />
 >>    - Sprite:<br />
 >>>        - Now You can add More Then one sprite.<br />
+>>>        - add coins and bomb to collect.<br />
 >>    - Fix Some Bugs.<br />
->      The Game Is Still Under Devlop so May There's some other Bugs (^-^).<br /><br />
+>      The project is Finished Now, So this is The last Version (maybe?) (^-^).<br /><br />
 # What is finished?
 - The Things that just finished
   1. [x] The walls are draw
@@ -39,26 +41,14 @@ The goal of cub3d is to make something using raycasting (like Wolfenstein 3D).
   10. [x] add --save flag get a screen shot to the map.
   11. [x] All The bugs in Map files has been fixed.
   12. [x] Fix some Bugs.
+  13. [x] Edit The Files.
+  14. [x] The texture for the sky and the floor.
+  15. [x] More items in the Maze.
+  16. [x] Sounds and Music.
+  17. [x] Coins and Bombs To Collect.
 - Working on:
-  1. [ ] Edit The Files.
-  2. [ ] The texture for the sky and the floor.
-  3. [ ] Ability to look up and Down.
-  4. [ ] jump or couch.
-  5. [ ] More items in the Maze.
-  6. [ ] secret Doors.
-  7. [ ] Sounds and Music.
+  1. [ ] Nothing For Now.
   
-# cub3d Alpha version 5: (what's new)
-- minimap:
-  - Now The minimap draw the wall with the color like in the map
-  - Add the position of the player
-  - the position of the player change in the minimap like in the map4
-- Edit the wall color
-- Now drawing of the wall get more faster because The drawing now using images 
-- give x and y sides different brightness in the wall
-- The textuer for all the walls
-- draw the sky and the floor
-- Add The ability to get a screenshot to The map.
 # ScreenShot From The Game:
 ![Image From The game](https://github.com/barimehdi77/ft_cub3d/blob/master/screenshot.bmp)
 
@@ -68,8 +58,8 @@ The goal of cub3d is to make something using raycasting (like Wolfenstein 3D).
   - The deadline: ` 01/11/2020`.  
 
 **For The Bonus part:**  
-  - started: `AFTER FINESH The Mandatory part`.  
-  - The Deadline:  `NOT NOW`.
+  - started: `AFTER FINESH The Mandatory part (14/11/2020)`.  
+  - The Deadline:  `30/11/2020`.
 # Ressources
 - [Playable Wolfenstein 3D](http://users.atw.hu/wolf3d/)
 - [Raycasting in JS](http://www.playfuljs.com/a-first-person-engine-in-265-lines/)
