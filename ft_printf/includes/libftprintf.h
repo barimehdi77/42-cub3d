@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbari <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/01 01:17:40 by mbari             #+#    #+#             */
-/*   Updated: 2020/01/01 06:02:33 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/17 13:18:56 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,6 @@ typedef	struct	s_arg
 	int			int_str;
 }				t_args;
 
-# define CSPER_FORMS *(s + i) == 'c' || *(s + i) == 's' || *(s + i) == '%'
-# define DIU_FORMS *(s + i) == 'd' || *(s + i) == 'i' || *(s + i) == 'u'
-# define HEXP_FORMS *(s + i) == 'x' || *(s + i) == 'X' || *(s + i) == 'p'
-
-# define CSPER *(s + i) != 'c' && *(s + i) != 's' && *(s + i) != '%'
-# define DIU *(s + i) != 'd' && *(s + i) != 'i' && *(s + i) != 'u'
-# define HEXP *(s + i) != 'x' && *(s + i) != 'X' && *(s + i) != 'p'
-
-# define WITH_FLAG ft_isdigit(*(s + i), &val) || *(s + i) == '0'
-# define STAR_FLAG *(s + i) == '*'
-# define WHITH_FLAGS *(s + i) == '-' || *(s + i) == '.'
 # define ON 1
 # define OFF 0
 # define STAR_NUMBER 2
@@ -112,6 +101,7 @@ void			ft_double_star_neg(int espace, int zeros,
 					t_args *value, t_print *val);
 void			ft_with_zeros_p(int espace, char type, char *s, t_print *val);
 void			ft_check_espace(int espace, int zeros, t_print *val);
+int				ft_getflag(int i, const char *s);
 void			ft_double_numbers_rest(int zeros, t_args *value, t_print *val);
 void			ft_star_number_rest(int espace, int zeros,
 					t_args *value, t_print *val);

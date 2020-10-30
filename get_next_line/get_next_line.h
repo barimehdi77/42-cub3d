@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 23:34:23 by mbari             #+#    #+#             */
-/*   Updated: 2020/06/07 21:42:33 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/17 12:24:47 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+# define BUFFER_SIZE 32
 
 size_t	ft_strlen(const char *str);
 char	*ft_strdup(const char *s1);

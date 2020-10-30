@@ -1,6 +1,25 @@
-#gcc main.c ft_update.c ft_minimap.c ft_move.c ft_puts.c ft_texture.c ft_key_pressed.c -Lminilibx -lmlx -L/usr/X11/lib -lXext -lX11 -lm -lbsd -g
-#-lmlx -L/usr/X11/lib -lXext -lX11 -lm -g
 make fclean
-make
+if [ "$1" = bonus ]; then
+    echo "\033[35m[Building The Game with The Bonus Part....]\033[34m"
+    make bonus
+else
+    echo "\033[35m[Building The Game without The Bonus Part...]\033[34m"
+    make
+fi
 make clean
-./cub3d maps/3.cub
+
+if [ "$1" = bonus ]; then
+    echo "\033[35m[The map You select is $2 ...]\033[34m"
+    if [ "$3" = --save ]; then
+        ./cub3D $2 $3
+    else
+        ./cub3D $2
+    fi
+else
+    echo "\033[35m[The map You select is $1 .....]\033[34m"
+    if [ "$2" = --save ]; then
+        ./cub3D $1 $2
+    else
+        ./cub3D $1
+    fi
+fi

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mbari <marvin@42.fr>                       +#+  +:+       +#+         #
+#    By: mbari <mbari@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/30 09:48:13 by mbari             #+#    #+#              #
-#    Updated: 2019/12/09 00:42:30 by mbari            ###   ########.fr        #
+#    Updated: 2020/10/30 12:08:19 by mbari            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_intsize.c ft_isalnum.c ft_isalpha.c \
 		ft_putnbr.c ft_split.c ft_strchr.c ft_strdup.c ft_strjoin.c \
 		ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c \
 		ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c \
-		ft_toupper.c ft_putstr.c ft_memcmp.c ft_putunsignednbr.c ft_strrev.c
+		ft_toupper.c ft_putstr.c ft_memcmp.c ft_putunsignednbr.c ft_strrev.c \
+		ft_strcat.c
 
 OBJ = $(SRC:%.c=%.o)
 
@@ -33,18 +34,18 @@ CFLAGS = -Wall -Werror -Wextra
 all: $(NAME)
 
 bonus:  $(BONUS_OBJ)
-		ar rc $(NAME) $(BONUS_OBJ)
-		ranlib $(NAME)
+	@ar rc $(NAME) $(BONUS_OBJ)
+	@ranlib $(NAME)
 
 $(NAME): $(OBJ)
-		$(CC) $(CFLAGS) -c $(SRC)
-		ar rc $(NAME) $(OBJ)
-		ranlib $(NAME)
+	@$(CC) $(CFLAGS) -c $(SRC)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
 
 clean: 
-	/bin/rm -f $(OBJ) $(BONUS_OBJ)
+	@/bin/rm -f $(OBJ) $(BONUS_OBJ)
 
 fclean: clean
-		/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME)
 
 re: fclean all

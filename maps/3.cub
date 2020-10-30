@@ -1,6 +1,6 @@
 R    900      600
-F 250    ,     77      ,    177
-C 50 ,    197,   214
+F 250    ,     77     ,       177
+C 50 ,    177,   214
 NO textures/cat4.xpm
 SO textures/cat2.xpm
 WE textures/cat2.xpm

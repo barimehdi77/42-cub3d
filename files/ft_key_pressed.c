@@ -5,46 +5,72 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/16 00:04:49 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/06 00:57:19 by mbari            ###   ########.fr       */
+/*   Created: 2020/10/14 10:06:06 by mbari             #+#    #+#             */
+/*   Updated: 2020/10/17 13:02:50 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int key_pressed(int key, t_mlx *mlx)
+int		ft_namecheck(char *arg, char *ext)
 {
-    if (key == 65307)
-        ft_put_error("The game is closed", mlx);
-    if (key == 119)
-        mlx->forward = 1;
-    if (key == 115)
-        mlx->backward = 1;
-    if (key == 97)
-        mlx->left = 1;
-    if (key == 100)
-        mlx->right = 1;
-    if (key == 65361)
-        mlx->rotleft = 1;
-    if (key == 65363)
-        mlx->rotright = 1;
+	int	i;
+
+	i = 0;
+	while (arg[i] != '\0')
+		i++;
+	if ((i > 4 && arg[i - 1] == ext[2] && arg[i - 2] == ext[1])
+		&& (arg[i - 3] == ext[0] && arg[i - 4] == '.'))
+		return (1);
 	return (0);
 }
 
-int key_released(int key, t_mlx *mlx)
+int		ft_savecheck(char *arg, char *save)
 {
-    //ft_putnbr(key);
-    if (key == 119)
-        mlx->forward = 0;
-    if (key == 115)
-        mlx->backward = 0;
-    if (key == 97)
-        mlx->left = 0;
-    if (key == 100)
-        mlx->right = 0;
-    if (key == 65361)
-        mlx->rotleft = 0;
-    if (key == 65363)
-        mlx->rotright = 0;
+	int	i;
+
+	i = 0;
+	while (arg[i] == save[i])
+	{
+		if (arg[i] == '\0' && save[i] == '\0')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int		key_pressed(int key, t_mlx *mlx)
+{
+	if (key == 53)
+		ft_put_error("The game is closed", mlx);
+	if (key == 13)
+		mlx->forward = 1;
+	if (key == 1)
+		mlx->backward = 1;
+	if (key == 0)
+		mlx->left = 1;
+	if (key == 2)
+		mlx->right = 1;
+	if (key == 123)
+		mlx->rotleft = 1;
+	if (key == 124)
+		mlx->rotright = 1;
+	return (0);
+}
+
+int		key_released(int key, t_mlx *mlx)
+{
+	if (key == 13)
+		mlx->forward = 0;
+	if (key == 1)
+		mlx->backward = 0;
+	if (key == 0)
+		mlx->left = 0;
+	if (key == 2)
+		mlx->right = 0;
+	if (key == 123)
+		mlx->rotleft = 0;
+	if (key == 124)
+		mlx->rotright = 0;
 	return (0);
 }

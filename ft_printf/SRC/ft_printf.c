@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/01 01:16:56 by mbari             #+#    #+#             */
-/*   Updated: 2020/05/20 23:42:08 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/17 13:17:57 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int		ft_value_len(t_args *arg, t_print *val)
 {
-		if (val->type == 'd' || val->type == 'i' || val->type == 'u')
+	if (val->type == 'd' || val->type == 'i' || val->type == 'u')
 	{
 		if (val->type == 'u' && arg->number < 0)
 			return (10);
@@ -49,7 +49,9 @@ char	ft_type(const char *s)
 	int i;
 
 	i = 0;
-	while (CSPER && DIU && HEXP)
+	while (*(s + i) != 'c' && *(s + i) != 's' && *(s + i) != '%'
+		&& *(s + i) != 'd' && *(s + i) != 'i' && *(s + i) != 'u' &&
+		*(s + i) != 'x' && *(s + i) != 'X' && *(s + i) != 'p')
 		i++;
 	return (*(s + i));
 }
@@ -91,9 +93,10 @@ int		ft_printf(const char *s, ...)
 		{
 			i++;
 			ft_set_val(&val);
-			if (CSPER_FORMS || DIU_FORMS || HEXP_FORMS)
+			if (ft_getflag(i, s))
 				ft_normal_forms(arg, (s + i), &val);
-			else if (WHITH_FLAGS || WITH_FLAG || STAR_FLAG)
+			else if (ft_isdigit(*(s + i), &val) || *(s + i) == '0' ||
+						*(s + i) == '*' || *(s + i) == '*')
 				ft_flags(arg, (s + i), &val);
 			i += ft_skip((char *)(s + i));
 		}

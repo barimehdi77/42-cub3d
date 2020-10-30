@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_addespace.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbari <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 00:16:50 by mbari             #+#    #+#             */
-/*   Updated: 2019/12/28 13:23:58 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/17 13:19:02 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,13 @@ void	ft_rest(int espace, char type, int value, t_print *val)
 			ft_putunsignednbr(value, val);
 	}
 	(espace < 0) ? (ft_addespace((-espace) - size, ' ', val)) : NULL;
+}
+
+int		ft_getflag(int i, const char *s)
+{
+	if (*(s + i) == 'c' || *(s + i) == 's' || *(s + i) == 'd'
+					|| *(s + i) == 'i' || *(s + i) == 'u' || *(s + i) == 'x'
+							|| *(s + i) == 'X' || *(s + i) == 'p')
+		return (1);
+	return (0);
 }
