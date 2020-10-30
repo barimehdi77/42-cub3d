@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_minimap.c                                       :+:      :+:    :+:   */
+/*   ft_minimap_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 10:08:21 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/17 17:25:59 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/28 14:46:23 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@ void	ft_fill_data(t_mlx *mlx, int iswall, int color)
 {
 	int scale;
 
-	scale = 7;
+	scale = mlx->win.width / 150;
+	if (scale > 7)
+		scale = 7;
+	else if (scale < 5)
+		scale = 5;
 	mlx->map.new_x = mlx->map.x * scale;
 	mlx->map.new_y = mlx->map.y * scale;
 	mlx->map.max_x = mlx->map.new_x + scale;
@@ -31,7 +35,7 @@ void	draw_player(t_mlx *mlx)
 {
 	mlx->map.x = (int)mlx->posx;
 	mlx->map.y = (int)mlx->posy;
-	ft_fill_data(mlx, 0, 0x42EFF5);
+	ft_fill_data(mlx, 0, RGB_RED);
 }
 
 int		ft_minmap(t_mlx *mlx)
@@ -45,16 +49,16 @@ int		ft_minmap(t_mlx *mlx)
 			if (mlx->worldmap[mlx->map.x][mlx->map.y] == '1')
 				ft_fill_data(mlx, 1, RGB_BLUE);
 			else if (mlx->worldmap[mlx->map.x][mlx->map.y] == '2')
-				ft_fill_data(mlx, 1, RGB_GREEN);
+				ft_fill_data(mlx, 1, RGB_WHITE);
 			else if (mlx->worldmap[mlx->map.x][mlx->map.y] == '7')
 				ft_fill_data(mlx, 1, RGB_BLUE);
 			else if (mlx->worldmap[mlx->map.x][mlx->map.y] == '4')
-				ft_fill_data(mlx, 1, RGB_WHITE);
+				ft_fill_data(mlx, 1, RGB_YELLOW);
 			else if (mlx->worldmap[mlx->map.x][mlx->map.y] == '0' ||
 						mlx->worldmap[mlx->map.x][mlx->map.y] == 'N')
-				ft_fill_data(mlx, 1, mlx->floor_color);
+				ft_fill_data(mlx, 1, RGB_WHITE);
 			else
-				ft_fill_data(mlx, 1, RGB_YELLOW);
+				ft_fill_data(mlx, 1, RGB_WHITE);
 			mlx->map.y++;
 		}
 		mlx->map.x++;

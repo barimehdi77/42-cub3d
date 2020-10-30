@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_update.c                                        :+:      :+:    :+:   */
+/*   ft_update_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:02:42 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/17 17:27:39 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/30 12:54:35 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	ft_wallside(t_mlx *mlx, int x)
 	mlx->zbuffer[x] = mlx->ray.perpwalldist;
 }
 
-int		ft_update(t_mlx *mlx, int screenshot)
+void	ft_update(t_mlx *mlx, int screenshot)
 {
 	int x;
 
@@ -95,6 +95,7 @@ int		ft_update(t_mlx *mlx, int screenshot)
 	mlx->tex.img_data = (int *)mlx_get_data_addr(mlx->tex.img_ptr,
 			&mlx->tex.bpp, &mlx->tex.size_line, &mlx->tex.endian);
 	ft_draw_floorsky(mlx);
+	ft_sky_floor_texture(mlx);
 	mlx->zbuffer = malloc(sizeof(double) * mlx->win.width);
 	while (x++ < mlx->win.width)
 	{
@@ -104,12 +105,11 @@ int		ft_update(t_mlx *mlx, int screenshot)
 		ft_draw(mlx, x);
 	}
 	ft_drawsprites(mlx);
-	ft_minmap(mlx);
+	ft_draw_hud(mlx);
 	if (screenshot == NO)
 	{
 		mlx_put_image_to_window(mlx->win.mlx_ptr, mlx->win.win_ptr,
 				mlx->tex.img_ptr, 0, 0);
 		mlx_destroy_image(mlx->win.mlx_ptr, mlx->tex.img_ptr);
 	}
-	return (0);
 }

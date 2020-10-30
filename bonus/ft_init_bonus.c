@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 10:08:05 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/19 09:16:18 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/25 13:07:12 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,13 @@ void	init_params(t_mlx *mlx)
 	mlx->tex3_done = 0;
 	mlx->tex4_done = 0;
 	mlx->spr_done = 0;
+	mlx->tex_ceiling_done = 0;
+	mlx->tex_floor_done = 0;
+	mlx->tex_coin_done = 0;
+	mlx->tex_bomb_done = 0;
+	mlx->tex_heart_done = 0;
+	mlx->tex_died_done = 0;
+	mlx->tex_win_done = 0;
 }
 
 void	init_map(t_mlx *mlx)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_texture.c                                       :+:      :+:    :+:   */
+/*   ft_texture_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/15 01:45:06 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/17 17:27:37 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/30 13:03:09 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ void	ft_texput(t_mlx *mlx)
 		mlx->tex.txt4_path, &mlx->tex.txt4_w, &mlx->tex.txt4_h);
 	mlx->tex.txt4_data = (int *)mlx_get_data_addr(mlx->tex.txt4,
 		&mlx->tex.txt4_bp, &mlx->tex.txt4_sl, &mlx->tex.txt4_end);
-	mlx->tex.sp = mlx_xpm_file_to_image(mlx->win.mlx_ptr,
-		mlx->tex.sp_path, &mlx->tex.sp_w, &mlx->tex.sp_h);
-	mlx->tex.sp_data = (int *)mlx_get_data_addr(mlx->tex.sp,
-		&mlx->tex.sp_bp, &mlx->tex.sp_sl, &mlx->tex.sp_end);
+	mlx->tex.heart = mlx_xpm_file_to_image(mlx->win.mlx_ptr,
+		mlx->tex.heart_path, &mlx->tex.heart_w, &mlx->tex.heart_h);
+	mlx->tex.heart_data = (int *)mlx_get_data_addr(mlx->tex.heart,
+		&mlx->tex.heart_bp, &mlx->tex.heart_sl, &mlx->tex.heart_end);
 }
 
 void	ft_put_tex_to_image(t_mlx *mlx, int y1, int y2, int x)

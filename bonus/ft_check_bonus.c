@@ -6,38 +6,11 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 12:58:18 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/19 09:22:13 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/30 13:01:32 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d_bonus.h"
-
-void	check_txt(int dir, t_mlx *mlx)
-{
-	if (dir == 1)
-	{
-		if (mlx->tex1_done)
-			ft_put_error("NORTH Texture set more than once\n", mlx);
-		else
-			mlx->tex1_done = 1;
-	}
-	else if (dir == 2)
-	{
-		if (mlx->tex2_done)
-			ft_put_error("SOUTH Texture set more than once\n", mlx);
-		else
-			mlx->tex2_done = 1;
-	}
-	else if (dir == 3)
-	{
-		if (mlx->tex3_done)
-			ft_put_error("WEST Texture set more than once\n", mlx);
-		else
-			mlx->tex3_done = 1;
-	}
-	else if (dir == 4 || dir == 5)
-		check_restoftex(dir, mlx);
-}
 
 void	read_txt(int dir, char *str, t_mlx *mlx)
 {
@@ -57,8 +30,25 @@ void	read_txt(int dir, char *str, t_mlx *mlx)
 	else if (dir == 4)
 		mlx->tex.txt4_path = str;
 	else if (dir == 5)
-		mlx->tex.sp_path = str;
+		mlx->tex.sprite_path = str;
+	else if (dir == 6)
+		mlx->tex.txt_floor_path = str;
+	else
+		ft_read_txt_rest(dir, str, mlx);
 	check_txt(dir, mlx);
+}
+
+void	ft_load_music(t_mlx *mlx)
+{
+	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
+	{
+		ft_printf("Mix_OpenAudio: %s\n", Mix_GetError());
+		ft_put_error("UNPLAYABLE AUDIO", mlx);
+	}
+	mlx->music.bg_music = Mix_LoadMUS("./sounds/music1.wav");
+	mlx->music.hit_domb = Mix_LoadWAV("./sounds/hit.wav");
+	mlx->music.hit_coin = Mix_LoadWAV("./sounds/coin.wav");
+	Mix_PlayMusic(mlx->music.bg_music, -1);
 }
 
 void	read_resolution(char *s, t_mlx *mlx)
@@ -77,10 +67,10 @@ void	read_resolution(char *s, t_mlx *mlx)
 	mlx->win.heigth = ft_atoi(s);
 	if (mlx->win.width <= 0 || mlx->win.heigth <= 0)
 		ft_put_error("Incorrect resolution values\n", mlx);
-	if (mlx->win.width > 1366)
-		mlx->win.width = 1366;
-	if (mlx->win.heigth > 768)
-		mlx->win.heigth = 768;
+	if ((mlx->win.width < 300 || mlx->win.width > 2500))
+		mlx->win.width = 1080;
+	if ((mlx->win.heigth < 300 || mlx->win.heigth > 1500))
+		mlx->win.heigth = 720;
 	extra_param(s, mlx, "Too many resolution inputs");
 }
 

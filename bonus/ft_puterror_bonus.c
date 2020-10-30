@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/03 18:24:29 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/19 09:10:02 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/30 11:55:26 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,20 +61,18 @@ void	checkmap(t_mlx *mlx, int x, int y)
 
 	mlx->player_pos = 0;
 	map = mlx->worldmap;
-	if (map[x][y] == '1' || map[x][y] == '0' || map[x][y] == '2')
-		return ;
 	if (x == 0 || y == 0 || x == mlx->max_x)
-		ft_put_error("MAP NOT CLOSED AROUND SPAWN\n", mlx);
+		ft_put_error("MAP NOT CLOSED AROUND\n", mlx);
 	if (map[x][y] == '7')
-		ft_put_error("MAP NOT CLOSED AROUND SPAWN\n", mlx);
-	if (map[x][y] == '3')
-		map[x][y] = '0';
-	if (map[x][y] == '4')
-		map[x][y] = '2';
-	checkmap(mlx, x + 1, y);
-	checkmap(mlx, x, y + 1);
-	checkmap(mlx, x - 1, y);
-	checkmap(mlx, x, y - 1);
+		ft_put_error("MAP NOT CLOSED AROUND\n", mlx);
+	if (map[x][y - 1] == '7')
+		ft_put_error("MAP NOT CLOSED AROUND\n", mlx);
+	if (map[x][y + 1] == '7')
+		ft_put_error("MAP NOT CLOSED AROUND\n", mlx);
+	if (map[x + 1][y] == '7')
+		ft_put_error("MAP NOT CLOSED AROUND\n", mlx);
+	if (map[x - 1][y] == '7')
+		ft_put_error("MAP NOT CLOSED AROUND\n", mlx);
 }
 
 int		close_game(t_mlx *mlx)
@@ -91,6 +89,9 @@ int		close_game(t_mlx *mlx)
 		}
 		free(mlx->lines);
 	}
+	Mix_FreeMusic(mlx->music.bg_music);
+	Mix_FreeChunk(mlx->music.hit_coin);
+	Mix_FreeChunk(mlx->music.hit_domb);
 	exit(EXIT_SUCCESS);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 10:08:28 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/14 13:45:20 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/21 09:53:49 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_rotate(t_mlx *mlx)
 		ft_rotleft(mlx, oldplanex, olddirx);
 }
 
-int		can_move(int pos)
+int		can_move(char pos)
 {
 	if (pos == '1' || pos == '2')
 		return (0);

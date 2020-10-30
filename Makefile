@@ -6,14 +6,14 @@
 #    By: mbari <mbari@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/14 08:34:17 by mbari             #+#    #+#              #
-#    Updated: 2020/10/19 13:46:41 by mbari            ###   ########.fr        #
+#    Updated: 2020/10/30 12:50:56 by mbari            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 #!/bin/bash
 
-MLX = -lmlx -lm -framework OpenGL -framework AppKit
+MLX = -lmlx -lm -framework OpenGL -framework AppKit -L /Users/mbari/.brew/lib `sdl2-config --libs` -lSDL2_mixer
 
 NAME = cub3D
 
@@ -46,11 +46,15 @@ B_SRCS	=	bonus/ft_init_bonus.c \
 			bonus/ft_update_bonus.c \
 			bonus/ft_check_bonus.c \
 			bonus/ft_draw_bonus.c \
+			bonus/ft_text_cf_bonus.c \
+			bonus/ft_collect_bonus.c \
+			bonus/ft_hud_bonus.c \
+			bonus/ft_check_tex_bonus.c \
 			bonus/main_bonus.c
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra
 
 GETNEXT =	get_next_line/get_next_line.c \
 			get_next_line/get_next_line_utils.c

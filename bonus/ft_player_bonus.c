@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/04 00:53:22 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/18 13:10:09 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/30 12:36:51 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@ void	verify_params(t_mlx *mlx)
 		ft_put_error("MISSING TEXTURE PATH\n", mlx);
 }
 
-int		check_mapvalue(int value, int x, int y, t_mlx *mlx)
+int		check_mapvalue(char value, int x, int y, t_mlx *mlx)
 {
-	if (value != '1' && value != '2' && value != '0' && value != '7')
+	if (value != '1' && value != '2' && value != '0'
+		&& value != '7' && value != 'C' && value != 'X')
 	{
 		player_init(x, y, value, mlx);
 		return (1);
@@ -56,19 +57,21 @@ int		choose_param(char c, char *str, t_mlx *mlx)
 	else if (c == 'S' && *(str + 1) == 'O' && *(str + 2) == ' ')
 		read_txt(2, str + 2, mlx);
 	else if (c == 'W' && *(str + 1) == 'E' && *(str + 2) == ' ')
-		read_txt(4, str + 2, mlx);
-	else if (c == 'E' && *(str + 1) == 'A' && *(str + 2) == ' ')
 		read_txt(3, str + 2, mlx);
-	else if (c == 'F' && *(str + 1) == ' ')
-		read_cf_color(str + 1, mlx, 'f');
-	else if (c == 'C' && *(str + 1) == ' ')
-		read_cf_color(str + 1, mlx, 'c');
+	else if (c == 'E' && *(str + 1) == 'A' && *(str + 2) == ' ')
+		read_txt(4, str + 2, mlx);
 	else if (c == 'S' && *(str + 1) == ' ')
 		read_txt(5, str + 1, mlx);
+	else if (c == 'F' && *(str + 1) == 'T' && *(str + 2) == ' ')
+		read_txt(6, str + 2, mlx);
+	else if (c == 'C' && *(str + 1) == 'T' && *(str + 2) == ' ')
+		read_txt(7, str + 2, mlx);
+	else if (c == 'C' && *(str + 1) == 'O' && *(str + 2) == ' ')
+		read_txt(8, str + 2, mlx);
 	else if (c == '1' || c == '0' || c == '2')
 		return (0);
-	else if (c)
-		ft_put_error("NON-EMPTY LINE WITH WRONG IDENTIFIER\n", mlx);
+	else
+		ft_choose_param_rest(c, str, mlx);
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 14:24:02 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/19 09:50:26 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/30 13:20:34 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <math.h>
 # include <stdint.h>
 # include "structs_bonus.h"
+# include "/Users/mbari/.brew/include/SDL2/SDL_mixer.h"
 # include "../ft_printf/includes/libftprintf.h"
 # include "../get_next_line/get_next_line.h"
 # include "../ft_printf/libft/libft.h"
@@ -29,6 +30,8 @@
 # define RGB_BLUE 	0x0000FF
 # define RGB_WHITE 	0xFFFFFF
 # define RGB_YELLOW	0xFFFF00
+# define UDIV 3
+# define VDIV 3
 # define NO 0
 # define YES 1
 
@@ -44,12 +47,11 @@ int				key_released(int key, t_mlx *mlx);
 int				ft_savecheck(char *arg, char *save);
 int				can_move(int pos);
 int				ft_move(t_mlx *mlx);
-int				check_mapvalue(int value, int x, int y, t_mlx *mlx);
+int				check_mapvalue(char value, int x, int y, t_mlx *mlx);
 int				choose_param(char c, char *str, t_mlx *mlx);
 int				countx(char **lines, t_mlx *mlx);
 int				county(char **map);
 int				close_game(t_mlx *mlx);
-int				ft_update(t_mlx *mlx, int screenshot);
 int				ft_loop(t_mlx *mlx);
 char			**get_filelines(char **lines, char **tmp, int fd);
 char			**parse_parameters(t_mlx *mlx, char **lines);
@@ -95,7 +97,28 @@ void			ft_inti(t_mlx *mlx);
 void			ft_draw_floorsky(t_mlx *mlx);
 void			ft_start_game(char *fname, int save);
 void			ft_fill_data(t_mlx *mlx, int iswall, int color);
+void			ft_update(t_mlx *mlx, int screenshot);
 void			draw_player(t_mlx *mlx);
 int				ft_minmap(t_mlx *mlx);
+void			ft_sky_floor_texture(t_mlx *mlx);
+void			ft_sky_floor_texput(t_mlx *mlx);
+void			ft_sprite_textput(t_mlx *mlx);
+void			ft_draw_hud(t_mlx *mlx);
+int				ft_get_coin(t_mlx *mlx);
+void			ft_collect(t_mlx *mlx);
+void			ft_print_score(t_mlx *mlx);
+void			ft_draw_hearts(t_mlx *mlx, long int color);
+void			ft_put_winscreen(t_mlx *mlx, long int color);
+void			ft_put_diedscreen(t_mlx *mlx, long int color);
+void			ft_win_or_died(t_mlx *mlx);
+void			ft_read_txt_rest(int dir, char *str, t_mlx *mlx);
+void			ft_choose_param_rest(char c, char *str, t_mlx *mlx);
+void			ft_checkmap_end(t_mlx *mlx);
+void			check_restoftex(int dir, t_mlx *mlx);
+void			check_texofcbc(int dir, t_mlx *mlx);
+void			check_texofhwd(int dir, t_mlx *mlx);
+void			ft_load_music(t_mlx *mlx);
+void			ft_diedwinscreen_texput(t_mlx *mlx);
+void			ft_spirte_resize(t_mlx *mlx, t_sprtools *sp);
 
 #endif

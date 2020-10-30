@@ -1,16 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_key_pressed.c                                   :+:      :+:    :+:   */
+/*   ft_key_pressed_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 10:06:06 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/17 17:25:56 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/30 13:16:27 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d_bonus.h"
+
+void	ft_spirte_resize(t_mlx *mlx, t_sprtools *sp)
+{
+	mlx->tex.sp_data = mlx->tex.sprite_data;
+	mlx->tex.sp_w = mlx->tex.sprite_w;
+	mlx->tex.sp_h = mlx->tex.sprite_h;
+	mlx->tex.sp_sl = mlx->tex.sprite_sl;
+	sp->vmovescreen = 0;
+	sp->vdiv = 1;
+	sp->udiv = 1;
+}
 
 int		ft_namecheck(char *arg, char *ext)
 {

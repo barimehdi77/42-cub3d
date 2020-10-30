@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/25 17:03:00 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/19 09:10:48 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/30 12:41:38 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,24 +39,6 @@ char	**get_filelines(char **lines, char **tmp, int fd)
 		i++;
 	}
 	return (lines);
-}
-
-void	check_restoftex(int dir, t_mlx *mlx)
-{
-	if (dir == 4)
-	{
-		if (mlx->tex4_done)
-			ft_put_error("EAST Texture set more than once\n", mlx);
-		else
-			mlx->tex4_done = 1;
-	}
-	else if (dir == 5)
-	{
-		if (mlx->spr_done)
-			ft_put_error("SPRITE Texture set more than once\n", mlx);
-		else
-			mlx->spr_done = 1;
-	}
 }
 
 char	**parse_parameters(t_mlx *mlx, char **lines)
@@ -131,7 +113,7 @@ void	ft_readmap(char *fname, t_mlx *mlx)
 	init_map(mlx);
 	make_map(firstmap, mlx);
 	check_player(mlx);
-	checkmap(mlx, mlx->posx, mlx->posy);
+	ft_checkmap_end(mlx);
 	mlx->sp = ft_get_sprite(mlx);
 	mlx->win.win_ptr = mlx_new_window(mlx->win.mlx_ptr,
 		mlx->win.width, mlx->win.heigth, "mbari cub3d");

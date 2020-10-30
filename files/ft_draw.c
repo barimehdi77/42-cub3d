@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 09:07:15 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/17 16:59:18 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/30 11:56:55 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,26 @@ void	ft_drawspritelines(t_sprtools *sprite, t_mlx *mlx)
 				sprite->y++;
 			}
 		sprite->x++;
+	}
+}
+
+void	ft_checkmap_end(t_mlx *mlx)
+{
+	int x;
+	int y;
+
+	x = 0;
+	while (x < mlx->max_x)
+	{
+		y = 0;
+		while (y < mlx->max_y)
+		{
+			if (x != 0 && y != 1 && mlx->worldmap[x][y] != '1'
+					&& mlx->worldmap[x][y] != '7')
+				checkmap(mlx, x, y);
+			y++;
+		}
+		x++;
 	}
 }
 

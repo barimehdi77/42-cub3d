@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 14:24:02 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/18 13:49:32 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/30 11:57:39 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int				ft_namecheck(char *arg, char *ext);
 int				key_pressed(int key, t_mlx *mlx);
 int				key_released(int key, t_mlx *mlx);
 int				ft_savecheck(char *arg, char *save);
-int				can_move(int pos);
+int				can_move(char pos);
 int				ft_move(t_mlx *mlx);
 int				check_mapvalue(int value, int x, int y, t_mlx *mlx);
 int				choose_param(char c, char *str, t_mlx *mlx);
@@ -94,5 +94,6 @@ void			ft_wallside(t_mlx *mlx, int x);
 void			ft_inti(t_mlx *mlx);
 void			ft_draw_floorsky(t_mlx *mlx);
 void			ft_start_game(char *fname, int save);
+void			ft_checkmap_end(t_mlx *mlx);
 
 #endif

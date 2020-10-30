@@ -17,14 +17,13 @@ The goal of cub3d is to make something using raycasting (like Wolfenstein 3D).
 # Till Now
 `NOTE: The project still under working so This's not The final result`. <br />
 >**What's New?**<br />
->>    - The Mandatory Part is Done NO need for any Thing.<br />
+>>    - The Mandatory Part is Done Just need to be normed.<br />
 >>    - HUD:<br />
 >>>        - The MiniMap is done.<br />
 >>>        - need some other Things.<br />
 >>    - Sprite:<br />
 >>>        - Now You can add More Then one sprite.<br />
 >>    - Fix Some Bugs.<br />
->>    - You can close the game now using (X) in The tab.<br />
 >      The Game Is Still Under Devlop so May There's some other Bugs (^-^).<br /><br />
 # What is finished?
 - The Things that just finished
@@ -39,15 +38,15 @@ The goal of cub3d is to make something using raycasting (like Wolfenstein 3D).
   9. [x] fix some bugs in the map reading.
   10. [x] add --save flag get a screen shot to the map.
   11. [x] All The bugs in Map files has been fixed.
-  12. [x] Edit The Files.
   12. [x] Fix some Bugs.
 - Working on:
-  1. [ ] The texture for the sky and the floor.
-  2. [ ] Ability to look up and Down.
-  3. [ ] jump or couch.
-  4. [ ] More items in the Maze.
-  5. [ ] secret Doors.
-  6. [ ] Sounds and Music.
+  1. [ ] Edit The Files.
+  2. [ ] The texture for the sky and the floor.
+  3. [ ] Ability to look up and Down.
+  4. [ ] jump or couch.
+  5. [ ] More items in the Maze.
+  6. [ ] secret Doors.
+  7. [ ] Sounds and Music.
   
 # cub3d Alpha version 5: (what's new)
 - minimap:
@@ -62,24 +61,16 @@ The goal of cub3d is to make something using raycasting (like Wolfenstein 3D).
 - Add The ability to get a screenshot to The map.
 # ScreenShot From The Game:
 ![Image From The game](https://github.com/barimehdi77/ft_cub3d/blob/master/screenshot.bmp)
-# How To Play: (Installation)
-**MacOS Users:**
-  - `git clone https://github.com/barimehdi77/ft_cub3d.git.`.
-  - `cd ft_cub3d`.
-  - if You want to play Mandatory part: `./run.sh maps/<Number of The map>.cub`.
-  - if You want to take a screenshot : `./run.sh maps/<Number of The map>.cub --save`.
-  - if You want to Play The Bonus Part : `./run.sh bonus maps/<Number of The map>.cub`.
-  - if You want to Take a ScreenShot With Bonus : `./run.sh bonus maps/<Number of The map>.cub --save`.
-  
+
 # The project Deadline
 **For Mandatory Part:**  
   - started: `28/04/2020`.  
-  - The deadline: ` 19/10/2020`.  
+  - The deadline: ` 01/11/2020`.  
 
 **For The Bonus part:**  
-  - started: `20/10/2020`.  
-  - The Deadline:  `01/11/2020`.
-# Resources
+  - started: `AFTER FINESH The Mandatory part`.  
+  - The Deadline:  `NOT NOW`.
+# Ressources
 - [Playable Wolfenstein 3D](http://users.atw.hu/wolf3d/)
 - [Raycasting in JS](http://www.playfuljs.com/a-first-person-engine-in-265-lines/)
 - [Some X11 event numbers](https://github.com/qst0/ft_libgfx)

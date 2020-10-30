@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 12:36:00 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/19 09:50:54 by mbari            ###   ########.fr       */
+/*   Updated: 2020/10/30 13:21:35 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define STRUCTS_BONUS_H
 
 # include "cub3d_bonus.h"
+# include "/Users/mbari/.brew/include/SDL2/SDL_mixer.h"
 
 typedef struct		s_window
 {
@@ -85,6 +86,10 @@ typedef struct		s_sprtools
 	int				x;
 	int				y;
 	int				d;
+	int				vmovescreen;
+	int				udiv;
+	int				vdiv;
+	double			vmove;
 }					t_sprtools;
 
 # pragma pack(push, 1)
@@ -167,6 +172,22 @@ typedef struct		s_textuer
 	int				txt4_bp;
 	int				txt4_sl;
 	int				txt4_end;
+	void			*txt_floor;
+	int				*txt_floor_data;
+	char			*txt_floor_path;
+	int				txt_floor_w;
+	int				txt_floor_h;
+	int				txt_floor_bp;
+	int				txt_floor_sl;
+	int				txt_floor_end;
+	void			*txt_ceiling;
+	int				*txt_ceiling_data;
+	char			*txt_ceiling_path;
+	int				txt_ceiling_w;
+	int				txt_ceiling_h;
+	int				txt_ceiling_bp;
+	int				txt_ceiling_sl;
+	int				txt_ceiling_end;
 	void			*sp;
 	int				*sp_data;
 	char			*sp_path;
@@ -175,6 +196,54 @@ typedef struct		s_textuer
 	int				sp_bp;
 	int				sp_sl;
 	int				sp_end;
+	void			*sprite;
+	int				*sprite_data;
+	char			*sprite_path;
+	int				sprite_w;
+	int				sprite_h;
+	int				sprite_bp;
+	int				sprite_sl;
+	int				sprite_end;
+	void			*coin;
+	int				*coin_data;
+	char			*coin_path;
+	int				coin_w;
+	int				coin_h;
+	int				coin_bp;
+	int				coin_sl;
+	int				coin_end;
+	void			*bomb;
+	int				*bomb_data;
+	char			*bomb_path;
+	int				bomb_w;
+	int				bomb_h;
+	int				bomb_bp;
+	int				bomb_sl;
+	int				bomb_end;
+	void			*heart;
+	int				*heart_data;
+	char			*heart_path;
+	int				heart_w;
+	int				heart_h;
+	int				heart_bp;
+	int				heart_sl;
+	int				heart_end;
+	void			*died;
+	int				*died_data;
+	char			*died_path;
+	int				died_w;
+	int				died_h;
+	int				died_bp;
+	int				died_sl;
+	int				died_end;
+	void			*win;
+	int				*win_data;
+	char			*win_path;
+	int				win_w;
+	int				win_h;
+	int				win_bp;
+	int				win_sl;
+	int				win_end;
 	void			*img_ptr;
 	int				*img_data;
 	void			*img_xpm;
@@ -186,7 +255,34 @@ typedef struct		s_textuer
 	int				bpp;
 	int				size_line;
 	int				endian;
+	float			raydirx0;
+	float			raydiry0;
+	float			raydirx1;
+	float			raydiry1;
+	float			posz;
+	float			rowdistance;
+	float			floorstepx;
+	float			floorstepy;
+	float			floorx;
+	float			floory;
+	int				cellx;
+	int				celly;
+	int				p;
 }					t_texture;
+
+typedef struct		s_player
+{
+	int				hearts;
+	int				score;
+	int				coin;
+}					t_player;
+
+typedef struct		s_music
+{
+	Mix_Chunk		*hit_coin;
+	Mix_Chunk		*hit_domb;
+	Mix_Music		*bg_music;
+}					t_music;
 
 typedef	struct		s_mlx
 {
@@ -198,6 +294,8 @@ typedef	struct		s_mlx
 	t_sprtools		sptools;
 	t_screenshot	*shot;
 	t_minmap		map;
+	t_player		player;
+	t_music			music;
 	double			posx;
 	double			posy;
 	double			dirx;
@@ -225,12 +323,20 @@ typedef	struct		s_mlx
 	int				tex2_done;
 	int				tex3_done;
 	int				tex4_done;
+	int				tex_floor_done;
+	int				tex_ceiling_done;
 	int				spr_done;
+	int				tex_coin_done;
+	int				tex_bomb_done;
+	int				tex_heart_done;
+	int				tex_died_done;
+	int				tex_win_done;
 	int				sprite_num;
 	int				*sprite_order;
 	int				x;
 	char			**worldmap;
 	char			**lines;
+	char			*this_lv;
 }					t_mlx;
 
 #endif

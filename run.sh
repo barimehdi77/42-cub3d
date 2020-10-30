@@ -23,5 +23,3 @@ else
         ./cub3D $1
     fi
 fi
-
-make fclean
