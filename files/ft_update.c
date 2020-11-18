@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:02:42 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/17 16:58:32 by mbari            ###   ########.fr       */
+/*   Updated: 2020/11/17 12:52:14 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int		ft_update(t_mlx *mlx, int screenshot)
 	mlx->tex.img_data = (int *)mlx_get_data_addr(mlx->tex.img_ptr,
 			&mlx->tex.bpp, &mlx->tex.size_line, &mlx->tex.endian);
 	ft_draw_floorsky(mlx);
-	mlx->zbuffer = malloc(sizeof(double) * mlx->win.width);
+	mlx->zbuffer = malloc(sizeof(double) * mlx->win.width + 1);
 	while (x++ < mlx->win.width)
 	{
 		ft_steps(mlx, x);
@@ -104,6 +104,7 @@ int		ft_update(t_mlx *mlx, int screenshot)
 		ft_draw(mlx, x);
 	}
 	ft_drawsprites(mlx);
+	free(mlx->zbuffer);
 	if (screenshot == NO)
 	{
 		mlx_put_image_to_window(mlx->win.mlx_ptr, mlx->win.win_ptr,

@@ -1,16 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_screenshot.c                                    :+:      :+:    :+:   */
+/*   ft_screenshot_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/06 00:57:55 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/17 17:27:32 by mbari            ###   ########.fr       */
+/*   Updated: 2020/11/17 14:06:39 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d_bonus.h"
+
+void				ft_takescreen(t_mlx *mlx)
+{
+	mlx_put_image_to_window(mlx->win.mlx_ptr, mlx->win.win_ptr,
+				mlx->tex.img_ptr, 0, 0);
+	mlx_destroy_image(mlx->win.mlx_ptr, mlx->tex.img_ptr);
+}
 
 t_screenshot		*ft_init_shot(t_mlx *mlx)
 {

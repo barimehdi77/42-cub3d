@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 18:51:44 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/30 12:09:14 by mbari            ###   ########.fr       */
+/*   Updated: 2020/11/17 12:23:52 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ char		**ft_split(char const *s, char c);
 char		*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 char		*ft_strrev(char *str);
 char		*ft_strcat(char *dest, char *src);
+int			my_atoi(char **str);
 
 #endif

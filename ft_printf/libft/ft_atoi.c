@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbari <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 13:05:06 by mbari             #+#    #+#             */
-/*   Updated: 2019/11/19 16:45:39 by mbari            ###   ########.fr       */
+/*   Updated: 2020/11/17 14:13:28 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,15 @@ int		ft_atoi(const char *str)
 		result += str[i] - '0';
 		i++;
 	}
-	return (r * result);
+	return (result);
+}
+
+int		my_atoi(char **str)
+{
+	int	num;
+
+	num = 0;
+	while (**str >= '0' && **str <= '9')
+		num = (num * 10) + (*(*str)++ - '0');
+	return (num);
 }

@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 14:24:02 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/30 13:20:34 by mbari            ###   ########.fr       */
+/*   Updated: 2020/11/17 14:06:53 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,5 +120,6 @@ void			check_texofhwd(int dir, t_mlx *mlx);
 void			ft_load_music(t_mlx *mlx);
 void			ft_diedwinscreen_texput(t_mlx *mlx);
 void			ft_spirte_resize(t_mlx *mlx, t_sprtools *sp);
+void			ft_takescreen(t_mlx *mlx);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:02:42 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/30 12:54:35 by mbari            ###   ########.fr       */
+/*   Updated: 2020/11/17 14:06:12 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	ft_update(t_mlx *mlx, int screenshot)
 			&mlx->tex.bpp, &mlx->tex.size_line, &mlx->tex.endian);
 	ft_draw_floorsky(mlx);
 	ft_sky_floor_texture(mlx);
-	mlx->zbuffer = malloc(sizeof(double) * mlx->win.width);
+	mlx->zbuffer = malloc(sizeof(double) * mlx->win.width + 1);
 	while (x++ < mlx->win.width)
 	{
 		ft_steps(mlx, x);
@@ -106,10 +106,7 @@ void	ft_update(t_mlx *mlx, int screenshot)
 	}
 	ft_drawsprites(mlx);
 	ft_draw_hud(mlx);
+	free(mlx->zbuffer);
 	if (screenshot == NO)
-	{
-		mlx_put_image_to_window(mlx->win.mlx_ptr, mlx->win.win_ptr,
-				mlx->tex.img_ptr, 0, 0);
-		mlx_destroy_image(mlx->win.mlx_ptr, mlx->tex.img_ptr);
-	}
+		ft_takescreen(mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 12:58:18 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/30 13:01:32 by mbari            ###   ########.fr       */
+/*   Updated: 2020/11/17 13:58:39 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,19 +58,18 @@ void	read_resolution(char *s, t_mlx *mlx)
 	mlx->screen_done = 1;
 	while (*s == ' ')
 		s++;
-	mlx->win.width = ft_atoi(s);
-	s += ft_intsize(mlx->win.width);
+	mlx->win.width = my_atoi(&s);
 	if (*s != ' ')
-		ft_put_error("Wrong height input\n", mlx);
+		ft_put_error("Wrong resolution input\n", mlx);
 	while (*s == ' ')
 		s++;
-	mlx->win.heigth = ft_atoi(s);
+	mlx->win.heigth = my_atoi(&s);
 	if (mlx->win.width <= 0 || mlx->win.heigth <= 0)
 		ft_put_error("Incorrect resolution values\n", mlx);
-	if ((mlx->win.width < 300 || mlx->win.width > 2500))
-		mlx->win.width = 1080;
-	if ((mlx->win.heigth < 300 || mlx->win.heigth > 1500))
-		mlx->win.heigth = 720;
+	if ((mlx->win.width < 300 || mlx->win.width > 2560))
+		mlx->win.width = 2560;
+	if ((mlx->win.heigth < 300 || mlx->win.heigth > 1440))
+		mlx->win.heigth = 1440;
 	extra_param(s, mlx, "Too many resolution inputs");
 }
 
