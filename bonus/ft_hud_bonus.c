@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 12:24:59 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/30 12:38:50 by mbari            ###   ########.fr       */
+/*   Updated: 2020/11/24 13:32:11 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,6 @@ void	ft_choose_param_rest(char c, char *str, t_mlx *mlx)
 		read_txt(11, str + 2, mlx);
 	else if (c == 'W' && *(str + 1) == 'S' && *(str + 2) == ' ')
 		read_txt(12, str + 2, mlx);
-	else if (c == 'F' && *(str + 1) == ' ')
-		read_cf_color(str + 1, mlx, 'f');
-	else if (c == 'C' && *(str + 1) == ' ')
-		read_cf_color(str + 1, mlx, 'c');
 	else if (c == 'N' && *(str + 1) == 'C' && *(str + 2) == ' ')
 		read_txt(9, str + 2, mlx);
 	else if (c == 'H' && *(str + 1) == ' ')

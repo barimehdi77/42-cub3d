@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 12:58:18 by mbari             #+#    #+#             */
-/*   Updated: 2020/11/17 13:55:13 by mbari            ###   ########.fr       */
+/*   Updated: 2020/11/24 12:33:38 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,26 +69,26 @@ void	read_resolution(char *s, t_mlx *mlx)
 	while (*s == ' ')
 		s++;
 	mlx->win.width = my_atoi(&s);
+	ft_printf("|%d||%s|\n", mlx->win.width, s);
 	if (*s != ' ')
 		ft_put_error("Wrong resolution input\n", mlx);
 	while (*s == ' ')
 		s++;
 	mlx->win.heigth = my_atoi(&s);
-	if (mlx->win.width <= 0 || mlx->win.heigth <= 0)
-		ft_put_error("Incorrect resolution values\n", mlx);
-	if ((mlx->win.width > 2560))
+	ft_printf("|%d||%s|\n", mlx->win.heigth, s);
+	if ((mlx->win.width <= 0 ||mlx->win.width > 2560))
 		mlx->win.width = 2560;
-	if ((mlx->win.heigth > 1440))
+	if ((mlx->win.heigth <= 0 || mlx->win.heigth > 1440))
 		mlx->win.heigth = 1440;
 	extra_param(s, mlx, "Too many resolution inputs");
 }
 
-void	ft_isfloor(char *s, t_mlx *mlx, char type, char *stor)
+void	ft_isfloor(char *s, t_mlx *mlx, char type, int color)
 {
 	if (type == 'f')
 	{
 		extra_param(s, mlx, "Too many Floor rgb inputs");
-		mlx->floor_color = ft_atoi(stor);
+		mlx->floor_color = color;
 		if (mlx->floor_color < 0)
 			ft_put_error("Wrong values for floor color\n", mlx);
 		mlx->floor_done = 1;
@@ -96,7 +96,7 @@ void	ft_isfloor(char *s, t_mlx *mlx, char type, char *stor)
 	else if (type == 'c')
 	{
 		extra_param(s, mlx, "Too many ceiling rgb inputs");
-		mlx->sky_color = ft_atoi(stor);
+		mlx->sky_color = color;
 		if (mlx->floor_color < 0)
 			ft_put_error("Wrong values for ceiling color\n", mlx);
 		mlx->sky_done = 1;
@@ -105,12 +105,11 @@ void	ft_isfloor(char *s, t_mlx *mlx, char type, char *stor)
 
 void	read_cf_color(char *s, t_mlx *mlx, char type)
 {
-	long int	color;
-	char		*stor;
+	int			color;
 	int			i;
 
 	i = 3;
-	stor = "";
+	color = 0;
 	if (mlx->floor_done && type == 'f')
 		ft_put_error("Multiple floor color inputs\n", mlx);
 	if (mlx->sky_done && type == 'c')
@@ -119,15 +118,12 @@ void	read_cf_color(char *s, t_mlx *mlx, char type)
 	{
 		while (*s == ' ')
 			s++;
-		color = ft_atoi(s);
-		s += ft_intsize(color);
-		stor = ft_strjoin(stor, ft_itoa(color));
+		color = color * 256 + my_atoi(&s);
 		while (*s == ' ')
 			s++;
 		if (*(s++) != ',' && i > 1)
 			ft_put_error("Wrong floor color input\n", mlx);
 		i--;
 	}
-	ft_isfloor(--s, mlx, type, stor);
-	free(stor);
+	ft_isfloor(--s, mlx, type, color);
 }

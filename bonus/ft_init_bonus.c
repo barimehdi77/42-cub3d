@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 10:08:05 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/25 13:07:12 by mbari            ###   ########.fr       */
+/*   Updated: 2020/11/24 13:28:06 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ void	set_cameraew(char dir, t_mlx *mlx)
 
 void	init_params(t_mlx *mlx)
 {
-	mlx->floor_done = 0;
-	mlx->sky_done = 0;
 	mlx->screen_done = 0;
 	mlx->tex1_done = 0;
 	mlx->tex2_done = 0;

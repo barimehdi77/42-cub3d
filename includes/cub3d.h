@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 14:24:02 by mbari             #+#    #+#             */
-/*   Updated: 2020/11/08 13:34:43 by mbari            ###   ########.fr       */
+/*   Updated: 2020/11/22 14:38:26 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char			**parse_parameters(t_mlx *mlx, char **lines);
 void			check_txt(int dir, t_mlx *mlx);
 void			read_txt(int dir, char *str, t_mlx *mlx);
 void			read_resolution(char *s, t_mlx *mlx);
-void			ft_isfloor(char *s, t_mlx *mlx, char type, char *stor);
+void			ft_isfloor(char *s, t_mlx *mlx, char type, int color);
 void			read_cf_color(char *s, t_mlx *mlx, char type);
 void			ft_drawspritelines(t_sprtools *sprite, t_mlx *mlx);
 void			checkmap(t_mlx *mlx, int x, int y);

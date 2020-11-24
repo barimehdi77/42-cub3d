@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/25 17:03:00 by mbari             #+#    #+#             */
-/*   Updated: 2020/11/17 11:32:33 by mbari            ###   ########.fr       */
+/*   Updated: 2020/11/24 13:11:54 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,5 +134,5 @@ void	ft_readmap(char *fname, t_mlx *mlx)
 	ft_checkmap_end(mlx);
 	mlx->sp = ft_get_sprite(mlx);
 	mlx->win.win_ptr = mlx_new_window(mlx->win.mlx_ptr,
-		mlx->win.width, mlx->win.heigth, "mbari cub3d");
+		mlx->win.width, mlx->win.heigth, "mbari Cub3D");
 }

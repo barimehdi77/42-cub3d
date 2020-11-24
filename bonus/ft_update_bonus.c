@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:02:42 by mbari             #+#    #+#             */
-/*   Updated: 2020/11/17 14:06:12 by mbari            ###   ########.fr       */
+/*   Updated: 2020/11/24 13:30:01 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ void	ft_update(t_mlx *mlx, int screenshot)
 			mlx->win.width, mlx->win.heigth);
 	mlx->tex.img_data = (int *)mlx_get_data_addr(mlx->tex.img_ptr,
 			&mlx->tex.bpp, &mlx->tex.size_line, &mlx->tex.endian);
-	ft_draw_floorsky(mlx);
 	ft_sky_floor_texture(mlx);
 	mlx->zbuffer = malloc(sizeof(double) * mlx->win.width + 1);
 	while (x++ < mlx->win.width)

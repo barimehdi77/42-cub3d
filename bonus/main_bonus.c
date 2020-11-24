@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 15:49:17 by mbari             #+#    #+#             */
-/*   Updated: 2020/10/30 13:05:58 by mbari            ###   ########.fr       */
+/*   Updated: 2020/11/24 13:36:13 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,35 +23,6 @@ void	ft_inti(t_mlx *mlx)
 	mlx->player.hearts = 3;
 	mlx->player.coin = 0;
 	mlx->player.score = 0;
-}
-
-void	ft_draw_floorsky(t_mlx *mlx)
-{
-	int x;
-	int y;
-
-	x = 0;
-	while (x < mlx->win.width)
-	{
-		y = 0;
-		while (y < mlx->win.heigth / 2)
-		{
-			mlx->tex.img_data[y * mlx->win.width + x] = mlx->sky_color;
-			y++;
-		}
-		x++;
-	}
-	x = 0;
-	while (x < mlx->win.width)
-	{
-		y = mlx->win.heigth / 2;
-		while (y < mlx->win.heigth)
-		{
-			mlx->tex.img_data[y * mlx->win.width + x] = mlx->floor_color;
-			y++;
-		}
-		x++;
-	}
 }
 
 int		ft_loop(t_mlx *mlx)
