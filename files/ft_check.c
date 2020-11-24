@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 12:58:18 by mbari             #+#    #+#             */
-/*   Updated: 2020/11/24 12:33:38 by mbari            ###   ########.fr       */
+/*   Updated: 2020/11/24 13:56:54 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,12 @@ void	read_resolution(char *s, t_mlx *mlx)
 	while (*s == ' ')
 		s++;
 	mlx->win.width = my_atoi(&s);
-	ft_printf("|%d||%s|\n", mlx->win.width, s);
 	if (*s != ' ')
 		ft_put_error("Wrong resolution input\n", mlx);
 	while (*s == ' ')
 		s++;
 	mlx->win.heigth = my_atoi(&s);
-	ft_printf("|%d||%s|\n", mlx->win.heigth, s);
-	if ((mlx->win.width <= 0 ||mlx->win.width > 2560))
+	if ((mlx->win.width <= 0 || mlx->win.width > 2560))
 		mlx->win.width = 2560;
 	if ((mlx->win.heigth <= 0 || mlx->win.heigth > 1440))
 		mlx->win.heigth = 1440;

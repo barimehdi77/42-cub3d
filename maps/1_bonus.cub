@@ -13,9 +13,6 @@ H ./textures/heart.xpm
 CT ./textures/sky_1.xpm
 FT ./textures/texture4.xpm
 
-F 184,113,39
-C 51,198,227
-
 DS ./textures/died.xpm
 WS ./textures/win.xpm
 

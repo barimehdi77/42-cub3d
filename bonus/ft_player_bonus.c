@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/04 00:53:22 by mbari             #+#    #+#             */
-/*   Updated: 2020/11/16 14:28:16 by mbari            ###   ########.fr       */
+/*   Updated: 2020/11/24 13:55:30 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,18 @@ void	verify_params(t_mlx *mlx)
 {
 	if (!(mlx->screen_done))
 		ft_put_error("NO RESOLUTION INPUT\n", mlx);
-	if (!(mlx->floor_done))
-		ft_put_error("NO FLOOR COLOR INPUT\n", mlx);
-	if (!(mlx->sky_done))
-		ft_put_error("NO CEILING COLOR INPUT\n", mlx);
+	if (!(mlx->tex_floor_done))
+		ft_put_error("NO FLOOR TEXTURE\n", mlx);
+	if (!(mlx->tex_ceiling_done))
+		ft_put_error("NO CEILING TEXTURE\n", mlx);
 	if (!mlx->tex1_done || !mlx->tex2_done || !mlx->tex3_done ||
 		!mlx->tex4_done || !mlx->spr_done)
-		ft_put_error("MISSING TEXTURE PATH\n", mlx);
+		ft_put_error("WALL TEXTURE PATH IS MISSING\n", mlx);
+	if (!mlx->tex_died_done || !mlx->tex_win_done ||
+				!mlx->tex_heart_done)
+		ft_put_error("SOME TEXTURES ARE MISSING\n", mlx);
+	if (!mlx->tex_bomb_done || !mlx->tex_coin_done)
+		ft_put_error("THE OBJECTS OR TRAPS TEXTURES ARE MISSING\n", mlx);
 }
 
 int		check_mapvalue(char value, int x, int y, t_mlx *mlx)
