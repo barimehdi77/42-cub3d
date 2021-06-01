@@ -1,9 +1,10 @@
-# ft_cub3d
+# 🎮 ft_cub3d
 The Graphic project of 1337 curses
-# The Global Goal
-The goal of cub3d is to make something using raycasting (like Wolfenstein 3D).
 
-## The MiniGoals
+# 🌎 The Global Goal
+The goal of cub3d is to make something using raycasting (like [Wolfenstein 3D](https://fr.wikipedia.org/wiki/Wolfenstein_3D)).
+
+# 🕹 The MiniGoals
 - WASD to move, QE or Left/Right directional keys to rotate camera
 - I to toggle Interface, O to toggle crosshair, L to toggle shadows
 - ESC to quit
@@ -27,7 +28,7 @@ The goal of cub3d is to make something using raycasting (like Wolfenstein 3D).
 >>>        - add coins and bomb to collect.<br />
 >>    - Fix Some Bugs.<br />
 >      The project is Finished Now, So this is The last Version (maybe?) (^-^).<br /><br />
-# What is finished?
+# ✅ What is finished?
 - The Things that just finished
   1. [x] The walls are draw
   2. [x] Your Player can Move forward and backward and Rotate to right and left Now.
@@ -49,10 +50,10 @@ The goal of cub3d is to make something using raycasting (like Wolfenstein 3D).
 - Working on:
   1. [ ] Nothing For Now.
   
-# ScreenShot From The Game:
+# 📸 ScreenShot From The Game:
 ![Image From The game](https://github.com/barimehdi77/ft_cub3d/blob/master/screenshot.bmp)
 
-# The project Deadline
+# 💀 The project Deadline
 **For Mandatory Part:**  
   - started: `28/04/2020`.  
   - The deadline: ` 01/11/2020`.  
@@ -60,7 +61,7 @@ The goal of cub3d is to make something using raycasting (like Wolfenstein 3D).
 **For The Bonus part:**  
   - started: `AFTER FINESH The Mandatory part (14/11/2020)`.  
   - The Deadline:  `30/11/2020`.
-# Ressources
+# 👨‍💻 Ressources
 - [Playable Wolfenstein 3D](http://users.atw.hu/wolf3d/)
 - [Raycasting in JS](http://www.playfuljs.com/a-first-person-engine-in-265-lines/)
 - [Some X11 event numbers](https://github.com/qst0/ft_libgfx)
